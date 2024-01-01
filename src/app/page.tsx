@@ -14,7 +14,7 @@ export default function Home() {
             <h2 className="max-w-3xl mx-4 my-8 text-center text-sm text-neutral-300">
                 Hi, my name is Jordan. I am a computer science student
                 at the University of Utah. Currently, I am working on my
-                bachelor's thesis on compositionality behavior in large
+                bachelor&aposs thesis on compositionality behavior in large
                 language models.
             </h2>
         </div>

@@ -1,16 +1,23 @@
 // https://github.com/chronark/chronark.com/
 "use client";
+import { resumeInfo } from "@/constants/resumeInfo";
 import { IconArrowLeft } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Navigation: React.FC = () => {
-
     return (
         <header className="h-[72px]">
             <div className={"bg-neutral-900/500"}>
                 <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
                     <div className="flex justify-between gap-8">
+                        <a
+                            href={resumeInfo.resume}
+                            target="_blank"
+                            className="duration-200 text-neutral-400 hover:text-neutral-100"
+                        >
+                            Resume
+                        </a>
                         <Link
                             href="/portfolio"
                             className="duration-200 text-neutral-400 hover:text-neutral-100"
@@ -26,7 +33,7 @@ export const Navigation: React.FC = () => {
                     </div>
                     <Link
                         href="/"
-                        className={`duration-200 text-neutral-300 hover:text-neutral-100 ${
+                        className={`duration-200 text-neutral-400 hover:text-neutral-100 ${
                             usePathname() !== "/" ? "visible" : "hidden"
                         }`}
                     >

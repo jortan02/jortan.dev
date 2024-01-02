@@ -1,3 +1,4 @@
+// https://github.com/chronark/chronark.com/
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -13,6 +14,22 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        "fade-in": "fade-in 1s ease-out forwards",
+    },
+      keyframes: {
+        "fade-in": {
+            "0%": {
+                opacity: "0%",
+            },
+            "50%": {
+                opacity: "50%",
+            },
+            "100%": {
+                opacity: "100%",
+            },
+        },
+    },
     },
   },
   plugins: [],

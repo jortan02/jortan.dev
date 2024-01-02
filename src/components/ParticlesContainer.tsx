@@ -90,7 +90,7 @@ export const ParticlesContainer = () => {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
-        className="-z-50 absolute"
+        className="-z-50 absolute animate-fade-in"
       />
     );
   }

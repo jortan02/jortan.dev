@@ -8,38 +8,36 @@ import { usePathname } from "next/navigation";
 export const Navigation: React.FC = () => {
     return (
         <header className="h-[72px]">
-            <div className={"bg-neutral-900/500"}>
-                <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
-                    <div className="flex justify-between gap-8">
-                        <a
-                            href={resumeInfo.resume}
-                            target="_blank"
-                            className="duration-200 text-neutral-400 hover:text-neutral-100"
-                        >
-                            Resume
-                        </a>
-                        <Link
-                            href="/portfolio"
-                            className="duration-200 text-neutral-400 hover:text-neutral-100"
-                        >
-                            Portfolio
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="duration-200 text-neutral-400 hover:text-neutral-100"
-                        >
-                            Contacts
-                        </Link>
-                    </div>
-                    <Link
-                        href="/"
-                        className={`duration-200 text-neutral-400 hover:text-neutral-100 ${
-                            usePathname() !== "/" ? "visible" : "hidden"
-                        }`}
+            <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
+                <div className="flex justify-between gap-8">
+                    <a
+                        href={resumeInfo.resume}
+                        target="_blank"
+                        className="duration-200 text-neutral-400 hover:text-neutral-100"
                     >
-                        <IconArrowLeft className="w-6 h-6" />
+                        Resume
+                    </a>
+                    <Link
+                        href="/portfolio"
+                        className="duration-200 text-neutral-400 hover:text-neutral-100"
+                    >
+                        Portfolio
+                    </Link>
+                    <Link
+                        href="/contact"
+                        className="duration-200 text-neutral-400 hover:text-neutral-100"
+                    >
+                        Contacts
                     </Link>
                 </div>
+                <Link
+                    href="/"
+                    className={`duration-200 text-neutral-400 hover:text-neutral-100 ${
+                        usePathname() !== "/" ? "visible" : "hidden"
+                    }`}
+                >
+                    <IconArrowLeft className="w-6 h-6" />
+                </Link>
             </div>
         </header>
     );

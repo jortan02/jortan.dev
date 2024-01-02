@@ -8,9 +8,9 @@ export default async function PortfolioIndex() {
     const items = allPortfolios;
 
     return (
-        <div>
+        <>
             <Navigation />
-            <section className="mx-auto max-w-3xl">
+            <main className="mx-auto max-w-3xl">
                 <h1 className="text-center text-4xl font-bold py-5">
                     Portfolio Index
                 </h1>
@@ -19,8 +19,8 @@ export default async function PortfolioIndex() {
                         <PortfolioCard key={index} item={item} />
                     ))}
                 </div>
-            </section>
+            </main>
             <Footer />
-        </div>
+        </>
     );
 }

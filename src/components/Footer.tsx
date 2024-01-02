@@ -11,7 +11,7 @@ const strokeWidth = 1.75
 
 export const Footer = () => {
     return (
-        <footer className="px-6 py-1.5 text-sm font-medium bg-green-500 text-neutral-950 flex items-center justify-between md:flex-row">
+        <footer className="h-[36px] px-6 py-1.5 text-sm font-medium bg-green-500 text-neutral-950 flex items-center justify-between md:flex-row">
             <span>
                 &copy; {new Date().getFullYear()} Jordan Tan
             </span>

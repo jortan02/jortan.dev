@@ -19,7 +19,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
     return (
         <>
         <Navigation />
-        <div className="mx-auto max-w-3xl p-8">
+        <main className="mx-auto max-w-3xl p-8">
             <Link
                 href="/portfolio"
                 className="text-blue-500 hover:text-blue-700"
@@ -36,7 +36,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                     />
                 <div dangerouslySetInnerHTML={{ __html: item.body.html }} />
             </div>
-        </div>
+        </main>
         <Footer />
         </>
     );

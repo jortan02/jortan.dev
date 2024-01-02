@@ -8,7 +8,7 @@ export const ContactCircle: React.FC<ContactCircleProps> = ({
     link,
 }) => {
     return (
-        <a href={link} target="_blank" className="">
+        <a href={link} target="_blank">
             {icon}
         </a>
     );

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 interface Params {
     params: {
@@ -36,6 +37,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                 <div dangerouslySetInnerHTML={{ __html: item.body.html }} />
             </div>
         </div>
+        <Footer />
         </>
     );
 };

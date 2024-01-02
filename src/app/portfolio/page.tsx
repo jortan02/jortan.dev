@@ -2,6 +2,7 @@ import { PortfolioCard } from "@/components/PortfolioCard";
 import { allPortfolios } from "contentlayer/generated";
 import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 export default async function PortfolioIndex() {
     const items = allPortfolios;
@@ -19,6 +20,7 @@ export default async function PortfolioIndex() {
                     ))}
                 </div>
             </section>
+            <Footer />
         </div>
     );
 }

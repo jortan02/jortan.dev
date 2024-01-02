@@ -5,31 +5,31 @@ import {
     IconBrandGithub,
     IconBrandLinkedin,
 } from "@tabler/icons-react";
+import { ContactCircle } from "./ContactCircle";
+
+const strokeWidth = 1.75
 
 export const Footer = () => {
     return (
-        <footer>
-            <div className="">
-                <a
-                    href={`mailto:${contactInfo.email}`}
-                >
-                    <IconMail />
-                </a>
-                <a
-                    href={contactInfo.github}
-                >
-                    <IconBrandGithub />
-                </a>
-                <a
-                    href={contactInfo.linkedin}
-                >
-                    <IconBrandLinkedin />
-                </a>
+        <footer className="px-6 py-1.5 text-sm font-medium bg-green-500 text-neutral-950 flex items-center justify-between md:flex-row">
+            <span>
+                &copy; {new Date().getFullYear()} Jordan Tan
+            </span>
+            <div className="items-center justify-center space-x-3 hidden md:flex">
+                <ContactCircle
+                    icon={<IconMail strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
+                    link={`mailto:${contactInfo.email}`}
+                />
+                <ContactCircle
+                    icon={<IconBrandGithub strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
+                    link={`https://${contactInfo.github}`}
+                />
+                <ContactCircle
+                    icon={<IconBrandLinkedin strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
+                    link={`https://${contactInfo.linkedin}`}
+                />
             </div>
-            <div className="">
-                <span className="">&copy; {new Date().getFullYear()} Jordan Tan</span>
-                <span className="">Created using Next.js</span>
-            </div>
+            <span>Created using Next.js</span>
         </footer>
     );
 };

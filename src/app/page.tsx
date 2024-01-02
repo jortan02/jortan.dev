@@ -1,12 +1,13 @@
 // https://github.com/chronark/chronark.com/
 import { ParticlesContainer } from "@/components/ParticlesContainer"
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
     <Navigation />
-    <section className="h-[calc(100vh-72px)] flex flex-col items-center justify-center">
+    <section className="min-h-[calc(100vh-72px-36px)] flex flex-col items-center justify-center">
         <div className="z-10 flex flex-col items-center justify-center">
             <h1 className="my-8 text-6xl md:text-9xl text-white font-display">
                 jortan  
@@ -19,6 +20,7 @@ export default function Home() {
             </h2>
         </div>
     </section>
+    <Footer />
     <ParticlesContainer />
     </>
   )

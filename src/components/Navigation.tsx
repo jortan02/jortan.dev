@@ -9,7 +9,7 @@ export const Navigation: React.FC = () => {
     return (
         <header className="h-[72px]">
             <div className={"bg-neutral-900/500"}>
-                <div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
+                <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
                     <div className="flex justify-between gap-8">
                         <Link
                             href="/portfolio"

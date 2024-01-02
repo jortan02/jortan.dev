@@ -7,12 +7,13 @@ import {
     IconBrandGithub,
     IconBrandLinkedin,
 } from "@tabler/icons-react";
+import { Footer } from "@/components/Footer";
 
 export default async function ContactIndex() {
     return (
         <>
             <Navigation />
-            <section className="h-[calc(100vh-72px)] flex flex-col items-center justify-center">
+            <section className="min-h-[calc(100vh-72px-36px)] flex flex-col items-center justify-center">
                 <div className="w-1/2">
                     <h1 className="text-center text-4xl font-bold">Contact</h1>
                     <div className="p-16 w-full flex items-center justify-center">
@@ -42,6 +43,7 @@ export default async function ContactIndex() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 }

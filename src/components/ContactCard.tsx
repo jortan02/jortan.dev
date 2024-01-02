@@ -1,10 +1,10 @@
-interface PortfolioCardProps {
+interface ContactCardProps {
     icon: React.ReactNode;
     link: string;
     name: string;
 }
 
-export const ContactCard: React.FC<PortfolioCardProps> = ({
+export const ContactCard: React.FC<ContactCardProps> = ({
     icon,
     link,
     name,

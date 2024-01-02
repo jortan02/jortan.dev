@@ -1,6 +1,6 @@
 // https://github.com/chronark/chronark.com/
 "use client";
-import { ArrowLeftIcon } from "@heroicons/react/16/solid";
+import { IconArrowLeft } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -30,7 +30,7 @@ export const Navigation: React.FC = () => {
                             usePathname() !== "/" ? "visible" : "hidden"
                         }`}
                     >
-                        <ArrowLeftIcon className="w-6 h-6" />
+                        <IconArrowLeft className="w-6 h-6" />
                     </Link>
                 </div>
             </div>

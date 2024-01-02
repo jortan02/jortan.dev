@@ -9,7 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@heroicons/react": "^2.1.1",
+        "@tabler/icons-react": "^2.45.0",
         "@tsparticles/react": "^3.0.0",
         "@tsparticles/slim": "^3.0.3",
         "contentlayer": "^0.3.4",

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <Navigation />
-    <div className="flex flex-col items-center justify-center h-[calc(100vh-72px)]">
+    <section className="h-[calc(100vh-72px)] flex flex-col items-center justify-center">
         <div className="z-10 flex flex-col items-center justify-center">
             <h1 className="my-8 text-6xl md:text-9xl text-white font-display">
                 jortan  
@@ -18,7 +18,7 @@ export default function Home() {
                 language models.
             </h2>
         </div>
-    </div>
+    </section>
     <ParticlesContainer />
     </>
   )

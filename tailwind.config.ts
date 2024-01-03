@@ -1,4 +1,3 @@
-// https://github.com/chronark/chronark.com/
 import type { Config } from 'tailwindcss'
 
 const config: Config = {

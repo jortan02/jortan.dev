@@ -1,4 +1,3 @@
-// https://github.com/chronark/chronark.com/
 "use client";
 import { resumeInfo } from "@/constants/resumeInfo";
 import { IconArrowLeft } from "@tabler/icons-react";
@@ -6,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Navigation: React.FC = () => {
+    const finalSlashIndex = usePathname().lastIndexOf('/')
+    const previousPath = finalSlashIndex === 0 ? "/" : usePathname().slice(0, finalSlashIndex)
     return (
         <header className="h-[72px]">
             <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
@@ -31,7 +32,7 @@ export const Navigation: React.FC = () => {
                     </Link>
                 </div>
                 <Link
-                    href="/"
+                    href={previousPath}
                     className={`duration-200 text-neutral-400 hover:text-neutral-100 ${
                         usePathname() !== "/" ? "visible" : "hidden"
                     }`}

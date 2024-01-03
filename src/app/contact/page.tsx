@@ -14,7 +14,7 @@ export default async function ContactIndex() {
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
             <main className="flex-grow flex flex-col items-center justify-center">
-                <h1 className="text-center text-4xl">Let's connect</h1>
+                <h1 className="text-center text-4xl">Let&apos;s connect</h1>
                 <div className="w-1/2">
                     <div className="py-16 w-full flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-16">
                         <div className="flex flex-col justify-center space-y-5">

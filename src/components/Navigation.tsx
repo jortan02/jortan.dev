@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 
 export const Navigation: React.FC = () => {
     const finalSlashIndex = usePathname().lastIndexOf('/')
-    const previousPath = finalSlashIndex === 0 ? "/" : usePathname().slice(0, finalSlashIndex)
+    let previousPath = usePathname().slice(0, finalSlashIndex)
+    if (previousPath === "") {
+        previousPath = "/"
+    }
     return (
         <header className="h-[72px]">
             <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">

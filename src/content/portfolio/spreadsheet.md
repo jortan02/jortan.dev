@@ -5,7 +5,7 @@ description: Spreadsheet is an application that takes in strings and numbers lik
 date: 2021-10-12
 category: Desktop Application
 skills: [C#, WinForms]
-slug: tank-wars
+slug: spreadsheet
 ---
 
 ![Spreadsheet screenshot](/images/portfolio/Spreadsheet.png)

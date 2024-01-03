@@ -11,7 +11,7 @@ export default async function PortfolioIndex() {
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
             <main className="mx-auto max-w-3xl">
-                <h1 className="py-5 text-center text-4xl">My previous work</h1>
+                <h1 className="py-5 text-4xl">Portfolio</h1>
                 <div className="p-4 md:p-0 grid grid-cols-3 gap-4 w-full">
                     {items.map((item, index) => (
                         <PortfolioCard key={index} item={item} />

@@ -5,7 +5,7 @@ description: Tank Wars is an online multiplayer game. Each player is a tank that
 date: 2021-12-02
 category: Desktop Application  Oct 12, 2021
 skills: [C#, WinForms]
-slug: tank-wars
+slug: tankwars
 ---
 
 ![TankWars screenshot](/images/portfolio/TankWars.png)

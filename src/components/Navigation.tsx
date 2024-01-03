@@ -31,7 +31,7 @@ export const Navigation: React.FC = () => {
                         href="/contact"
                         className="duration-200 text-neutral-400 hover:text-neutral-100"
                     >
-                        Contacts
+                        Contact
                     </Link>
                 </div>
                 <Link

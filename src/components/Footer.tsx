@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { ContactCircle } from "./ContactCircle";
 
-const strokeWidth = 1.75
+const strokeWidth = 1.5
 
 export const Footer = () => {
     return (

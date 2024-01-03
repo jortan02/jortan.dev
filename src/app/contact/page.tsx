@@ -10,16 +10,16 @@ import {
 export default async function ContactIndex() {
     return (
         <main className="flex-grow flex flex-col items-center justify-center">
+            <h1 className="text-center text-4xl">Let's connect</h1>
             <div className="w-1/2">
-                <h1 className="text-center text-4xl font-bold">Contact</h1>
-                <div className="py-16 w-full flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0">
-                    <div className="md:w-2/5 flex flex-col items-center justify-center space-y-5">
+                <div className="py-16 w-full flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-16">
+                    <div className="flex flex-col justify-center space-y-5">
                         <div className="w-32 h-32 bg-neutral-300 flex items-center justify-center ">
                         <IconUser size={64} color="#101010" />
                         </div>
                         <h2 className="text-2xl">Jordan Tan</h2>
                     </div>
-                    <div className="md:w-3/5 max-w-96 flex flex-col space-y-3">
+                    <div className="md:w-3/5 min-w-fit flex flex-col space-y-3">
                         <ContactCard
                             icon={<IconMail size={24} />}
                             link={`mailto:${contactInfo.email}`}

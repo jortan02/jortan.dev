@@ -54,7 +54,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                     </div>
                 </div>
                 <ReactMarkdown
-                    className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
+                    className="px-4 pb-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
                     components={{
                         img: (props) => (
                             <span className="flex justify-center">
@@ -64,7 +64,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                                     width="0"
                                     height="0"
                                     sizes="100vw"
-                                    className="w-auto h-[60vh]"
+                                    className="w-auto max-h-[60vh]"
                                 />
                             </span>
                         ),

@@ -15,8 +15,8 @@ export default async function PortfolioIndex() {
 					<div className="mt-4 w-full h-px bg-neutral-400" />
 				</div>
 
-                <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2">
-                    <div className="grid grid-cols-1 gap-4">
+                <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                    <div className="flex w-full flex-col space-y-4">
                         {sorted
                             .filter((_, index) => index % 2 === 0)
                             .map((project) => (
@@ -26,7 +26,7 @@ export default async function PortfolioIndex() {
                                 />
                             ))}
                     </div>
-                    <div className="grid grid-cols-1 gap-4">
+                    <div className="flex w-full flex-col space-y-4">
                         {sorted
                             .filter((_, index) => index % 2 === 1)
                             .map((project) => (

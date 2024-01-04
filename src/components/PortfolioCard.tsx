@@ -16,7 +16,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item }) => {
                 </div>
                 <h2 className="pt-2 text-2xl">{item.title}</h2>
                 <p className="pt-3 text-sm">{item.description}</p>
-                <ul className="pt-2 list-none flex flex-wrap">
+                <ul className="pt-3 list-none flex flex-wrap">
                     {item.skills.map((skill) => (
                         <li key={skill} className="text-sm pr-2">{skill}</li>
                     ))}

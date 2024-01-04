@@ -4,7 +4,7 @@ title: Jordan Tan Gatsby Site
 description: A personal blog and portfolio website made using Gatsby.
 date: 2021-06-17
 category: Website
-skills: [JavaScript, Gatsby, GraphQL, HTML, SASS, Strapi]
+skills: [JavaScript, HTML, SASS, Gatsby, GraphQL, Strapi]
 slug: jortan-site
 repository: jortan-site
 ---

@@ -7,7 +7,7 @@ export default function Home() {
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
             <main className="flex-grow flex flex-col items-center justify-center">
-                <div className="z-10 flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center">
                     <h1 className="my-8 text-6xl md:text-9xl">
                         jortan
                     </h1>

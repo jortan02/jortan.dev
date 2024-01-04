@@ -3,7 +3,7 @@ published: true
 title: Spreadsheet
 description: Spreadsheet is an application that takes in strings and numbers like a typical spreadsheet program.
 date: 2021-10-12
-category: Desktop Application
+category: Desktop App
 skills: [C#, WinForms]
 slug: spreadsheet
 ---

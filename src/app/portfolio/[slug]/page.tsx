@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
+import "@/app/styles/portfolio.scss";
+import { contactInfo } from "@/constants/contactInfo";
+
 interface Params {
     params: {
         slug: string;
@@ -19,13 +22,27 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
     return (
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
-            <main className="px-4 pb-16 mx-auto flex-grow max-w-4xl space-y-8">
-				<div>
-                	<h2 className="text-3xl">{item?.title}</h2>
-					<div className="mt-4 w-full h-px bg-neutral-400" />
-				</div>
-                <div>
-                    <div dangerouslySetInnerHTML={{ __html: item.body.html }} />
+            <main className="flex-grow space-y-8">
+                <div className="min-h-96 px-4 flex flex-col items-center justify-center">
+                    <h1 className="text-5xl">{item?.title}</h1>
+                    <p className="pt-6">{item.description}</p>
+                    <ul className="pt-2 list-none flex flex-wrap">
+                        {item.skills.map((skill) => (
+                            <li key={skill} className="pr-2">
+                                {skill}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="pt-12">
+                        {item.repository ? <a className="duration-200 text-neutral-400 hover:text-neutral-100" href={`https://${contactInfo.github}/${item.repository}`}>GitHub →</a> : null}
+                        {item.url ? <a className="duration-200 text-neutral-400 hover:text-neutral-100" href={item.url}>GitHub →</a> : null}
+                    </div>
+                </div>
+                <div className="start text-neutral-800 bg-neutral-100">
+                    <div
+                        className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
+                        dangerouslySetInnerHTML={{ __html: item.body.html }}
+                    />
                 </div>
             </main>
             <Footer />

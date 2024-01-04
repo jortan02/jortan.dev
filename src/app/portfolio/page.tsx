@@ -12,7 +12,7 @@ export default async function PortfolioIndex() {
             <Navigation />
             <main className="px-4 pb-16 mx-auto flex-grow max-w-4xl space-y-8">
 				<div>
-                	<h2 className="text-3xl">Portfolio</h2>
+                	<h1 className="text-4xl">Portfolio</h1>
 					<div className="mt-4 w-full h-px bg-neutral-400" />
 				</div>
 

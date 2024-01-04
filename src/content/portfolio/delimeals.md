@@ -3,7 +3,7 @@ published: true
 title: DeliMeals
 description: A recipe app created using Flutter. Part of Academind's Flutter & Dart course.
 date: 2022-12-24
-category: Mobile Application
+category: Mobile App
 skills: [Dart, Flutter]
 slug: delimeals
 repository: jortan02/delimeals_app

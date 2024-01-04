@@ -3,7 +3,7 @@ published: true
 title: Parking Simulator
 description: Parking Simulator is an educational app that teaches users how to park. It was created using C++, QT, and Box2D.
 date: 2022-04-08
-category: Desktop Application
+category: Desktop App
 skills: [C++, Qt, Box2D]
 slug: parking-simulator
 ---

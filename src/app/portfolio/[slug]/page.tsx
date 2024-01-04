@@ -21,8 +21,8 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
     return (
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
-            <main className="flex-grow space-y-8">
-                <div className="min-h-96 px-4 flex flex-col items-center justify-center">
+            <main className="flex-grow space-y-8 text-neutral-800 bg-neutral-100">
+                <div className="min-h-96 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
                     <h1 className="text-5xl">{item?.title}</h1>
                     <p className="pt-6">{item.description}</p>
                     <ul className="pt-4 list-none flex flex-wrap">
@@ -32,29 +32,46 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                             </li>
                         ))}
                     </ul>
-                    <div className="pt-12">
-                        {item.repository ? <a className="duration-200 text-neutral-400 hover:text-neutral-100" href={`https://${contactInfo.github}/${item.repository}`}>GitHub →</a> : null}
-                        {item.url ? <a className="duration-200 text-neutral-400 hover:text-neutral-100" href={item.url}>GitHub →</a> : null}
+                    <div className="pt-12 space-x-6">
+                        {item.repository ? (
+                            <a
+                                className="duration-200 text-neutral-400 hover:text-neutral-100"
+                                href={`https://${contactInfo.github}/${item.repository}`}
+                                target="_blank"
+                            >
+                                GitHub →
+                            </a>
+                        ) : null}
+                        {item.url ? (
+                            <a
+                                className="duration-200 text-neutral-400 hover:text-neutral-100"
+                                href={`https://${item.url}`}
+                                target="_blank"
+                            >
+                                Website →
+                            </a>
+                        ) : null}
                     </div>
                 </div>
-                <div className="start text-neutral-800 bg-neutral-100">
-                    <ReactMarkdown className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
-                        components={{
-                            img: (props) => (
-                                <span className="flex justify-center">
-                                    <Image
-                                    src={props.src!} alt={props.alt!}
-                                        width="0"
-                                        height="0"
-                                        sizes="100vw"
-                                        className="w-auto h-[60vh]"
-                                    />
-                                </span>
-                            ),
-                          }}>
-                        {item.body.raw}
-                    </ReactMarkdown>
-                </div>
+                <ReactMarkdown
+                    className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
+                    components={{
+                        img: (props) => (
+                            <span className="flex justify-center">
+                                <Image
+                                    src={props.src!}
+                                    alt={props.alt!}
+                                    width="0"
+                                    height="0"
+                                    sizes="100vw"
+                                    className="w-auto h-[60vh]"
+                                />
+                            </span>
+                        ),
+                    }}
+                >
+                    {item.body.raw}
+                </ReactMarkdown>
             </main>
             <Footer />
         </div>

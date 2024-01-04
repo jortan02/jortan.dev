@@ -12,7 +12,7 @@ export const Navigation: React.FC = () => {
     }
     return (
         <header className="h-[72px]">
-            <div className="p-6 mx-6 flex flex-row-reverse items-center justify-between">
+            <div className="px-4 py-6 mx-0 md:mx-[3vw] flex flex-row-reverse items-center justify-between">
                 <div className="flex justify-between gap-8">
                     <a
                         href={resumeInfo.resume}

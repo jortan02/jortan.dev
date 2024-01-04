@@ -19,9 +19,12 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
     return (
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
-            <main className="mx-auto max-w-3xl p-8">
-                <h1 className="font-bold text-3xl py-3">{item?.title}</h1>
-                <div className="grid grid-cols-1 grid-rows-2">
+            <main className="px-4 pb-16 mx-auto flex-grow max-w-4xl space-y-8">
+				<div>
+                	<h2 className="text-3xl">{item?.title}</h2>
+					<div className="mt-4 w-full h-px bg-neutral-400" />
+				</div>
+                <div>
                     <div dangerouslySetInnerHTML={{ __html: item.body.html }} />
                 </div>
             </main>

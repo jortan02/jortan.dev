@@ -21,11 +21,11 @@ export default async function ContactIndex() {
                 <div className="w-1/2">
                     <div className="py-16 w-full flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-16">
                         <div className="text-center flex flex-col justify-center space-y-5">
-                            <div className="w-48 h-48 bg-neutral-300 flex items-center justify-center ">
+                            <div className="w-48 h-48 flex items-center justify-center border border-neutral-400 text-neutral-400">
                                 <IconUser
                                     size={96}
                                     strokeWidth={strokeWidth}
-                                    color="#101010"
+                                    // color="#101010"
                                 />
                             </div>
                             <h2 className="text-2xl">Jordan Tan</h2>

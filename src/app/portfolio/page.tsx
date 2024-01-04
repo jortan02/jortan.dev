@@ -6,16 +6,37 @@ import Image from "next/image";
 
 export default async function PortfolioIndex() {
     const items = allPortfolios;
-
+    const sorted = allPortfolios;
     return (
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
-            <main className="mx-auto max-w-3xl">
-                <h1 className="py-5 text-4xl">Portfolio</h1>
-                <div className="p-4 md:p-0 grid grid-cols-3 gap-4 w-full">
-                    {items.map((item, index) => (
-                        <PortfolioCard key={index} item={item} />
-                    ))}
+            <main className="px-4 pb-16 mx-auto flex-grow max-w-4xl space-y-8">
+				<div>
+                	<h2 className="text-3xl">Portfolio</h2>
+					<div className="mt-4 w-full h-px bg-neutral-400" />
+				</div>
+
+                <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-4">
+                        {sorted
+                            .filter((_, i) => i % 2 === 0)
+                            .map((project) => (
+                                <PortfolioCard
+                                    key={project.slug}
+                                    item={project}
+                                />
+                            ))}
+                    </div>
+                    <div className="grid grid-cols-1 gap-4">
+                        {sorted
+                            .filter((_, i) => i % 2 === 1)
+                            .map((project) => (
+                                <PortfolioCard
+                                    key={project.slug}
+                                    item={project}
+                                />
+                            ))}
+                    </div>
                 </div>
             </main>
             <Footer />

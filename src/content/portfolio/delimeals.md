@@ -1,14 +1,14 @@
 ---
 published: true
-title: Devcamp Fries Site (Devcamp)
-description: Devcamp Fries Site was created using HTML and CSS as part of Devcamp's HTML and CSS course.
-date: 2020-06-04
-category: Website
-skills: [HTML, SASS]
-slug: devcamp-fries-site
-repository: jortan02/html-css
+title: DeliMeals
+description: A recipe app created using Flutter. Part of Academind's Flutter & Dart course.
+date: 2022-12-24
+category: Mobile Application
+skills: [Dart, Flutter]
+slug: delimeals
+repository: jortan02/delimeals_app
 ---
 
-![Devcamp Fries Site screenshot](/images/portfolio/Devcamp_Fries.png)
+![DeliMeals screenshot](/images/portfolio/DeliMeals.png)
 
-Devcamp Fries Site was created using HTML and CSS as part of Devcamp's HTML and CSS course.
+A recipe app created using Flutter. Part of Academind's Flutter & Dart course. The app utilizes multiple screens for categories of meals, favorite meals, and filters. For each category, there is a list of meals users can select, which will show required ingredients and directions to make the meal.

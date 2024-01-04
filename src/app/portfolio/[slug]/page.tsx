@@ -1,11 +1,10 @@
 import { allPortfolios } from "contentlayer/generated";
 import { notFound } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
-import "@/app/styles/portfolio.scss";
 import { contactInfo } from "@/constants/contactInfo";
 
 interface Params {
@@ -26,7 +25,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                 <div className="min-h-96 px-4 flex flex-col items-center justify-center">
                     <h1 className="text-5xl">{item?.title}</h1>
                     <p className="pt-6">{item.description}</p>
-                    <ul className="pt-2 list-none flex flex-wrap">
+                    <ul className="pt-4 list-none flex flex-wrap">
                         {item.skills.map((skill) => (
                             <li key={skill} className="pr-2">
                                 {skill}
@@ -39,10 +38,22 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                     </div>
                 </div>
                 <div className="start text-neutral-800 bg-neutral-100">
-                    <div
-                        className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
-                        dangerouslySetInnerHTML={{ __html: item.body.html }}
-                    />
+                    <ReactMarkdown className="px-4 p-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
+                        components={{
+                            img: (props) => (
+                                <span className="flex justify-center">
+                                    <Image
+                                    src={props.src!} alt={props.alt!}
+                                        width="0"
+                                        height="0"
+                                        sizes="100vw"
+                                        className="w-auto h-[60vh]"
+                                    />
+                                </span>
+                            ),
+                          }}>
+                        {item.body.raw}
+                    </ReactMarkdown>
                 </div>
             </main>
             <Footer />

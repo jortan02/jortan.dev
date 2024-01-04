@@ -5,8 +5,7 @@ import { allPortfolios } from "contentlayer/generated";
 import Image from "next/image";
 
 export default async function PortfolioIndex() {
-    const items = allPortfolios;
-    const sorted = allPortfolios;
+    const sorted = allPortfolios.filter((item) => item.published).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return (
         <div className="min-h-screen flex flex-col justify-start">
             <Navigation />
@@ -19,7 +18,7 @@ export default async function PortfolioIndex() {
                 <div className="grid grid-cols-1 gap-4 mx-auto md:grid-cols-2">
                     <div className="grid grid-cols-1 gap-4">
                         {sorted
-                            .filter((_, i) => i % 2 === 0)
+                            .filter((_, index) => index % 2 === 0)
                             .map((project) => (
                                 <PortfolioCard
                                     key={project.slug}
@@ -29,7 +28,7 @@ export default async function PortfolioIndex() {
                     </div>
                     <div className="grid grid-cols-1 gap-4">
                         {sorted
-                            .filter((_, i) => i % 2 === 1)
+                            .filter((_, index) => index % 2 === 1)
                             .map((project) => (
                                 <PortfolioCard
                                     key={project.slug}

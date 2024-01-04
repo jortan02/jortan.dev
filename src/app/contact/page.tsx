@@ -28,7 +28,7 @@ export default async function ContactIndex() {
                                     // color="#101010"
                                 />
                             </div>
-                            <h2 className="text-2xl">Jordan Tan</h2>
+                            <h2 className="text-3xl">Jordan Tan</h2>
                         </div>
                         <div className="md:w-3/5 min-w-fit flex flex-col space-y-3">
                             <ContactCard

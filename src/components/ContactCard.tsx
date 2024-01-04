@@ -12,7 +12,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
     return (
         <a href={link} target="_blank" className="w-full h-20 px-6 border rounded-lg flex items-center justify-between space-x-6 duration-200 border-neutral-400 hover:border-neutral-100 text-neutral-400 hover:text-neutral-100">
             {icon}
-            <h3 className="pr-2">{name}</h3>
+            <h3 className="text-l pr-2">{name}</h3>
         </a>
     );
 };

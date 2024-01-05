@@ -24,7 +24,7 @@ export default async function ContactIndex() {
                                     size={96}
                                 />
                             </div>
-                            <h2 className="text-3xl">Jordan Tan</h2>
+                            <h1 className="text-3xl">Jordan Tan</h1>
                         </div>
                         <div className="md:w-3/5 min-w-fit flex flex-col space-y-3">
                             <ContactCard

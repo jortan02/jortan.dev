@@ -1,33 +1,34 @@
 import { contactInfo } from "@/constants/contactInfo";
 import React from "react";
 import {
-    IconMail,
-    IconBrandGithub,
-    IconBrandLinkedin,
-} from "@tabler/icons-react";
-import { ContactCircle } from "./ContactCircle";
-
-const strokeWidth = 1.5
+    Envelope,
+    GithubLogo,
+    LinkedinLogo,
+} from "@phosphor-icons/react/dist/ssr";
 
 export const Footer = () => {
     return (
         <footer className="h-[36px] px-4 py-1.5 mt-auto text-sm font-medium bg-green-500 text-neutral-950 flex items-center justify-between md:flex-row">
-            <span>
-                &copy; {new Date().getFullYear()} Jordan Tan
-            </span>
-            <div className="items-center justify-center space-x-3 hidden md:flex">
-                <ContactCircle
-                    icon={<IconMail strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
-                    link={`mailto:${contactInfo.email}`}
-                />
-                <ContactCircle
-                    icon={<IconBrandGithub strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
-                    link={`https://${contactInfo.github}`}
-                />
-                <ContactCircle
-                    icon={<IconBrandLinkedin strokeWidth={strokeWidth} className="duration-200 hover:text-neutral-700"/>}
-                    link={`https://${contactInfo.linkedin}`}
-                />
+            <span>&copy; {new Date().getFullYear()} Jordan Tan</span>
+            <div className="items-center justify-center space-x-4 hidden md:flex">
+                <a href={`mailto:${contactInfo.email}`} target="_blank">
+                    <Envelope
+                        size={24}
+                        className="duration-200 hover:text-neutral-700"
+                    />
+                </a>
+                <a href={`https://${contactInfo.github}`} target="_blank">
+                    <GithubLogo
+                        size={24}
+                        className="duration-200 hover:text-neutral-700"
+                    />
+                </a>
+                <a href={`https://${contactInfo.linkedin}`} target="_blank">
+                    <LinkedinLogo
+                        size={24}
+                        className="duration-200 hover:text-neutral-700"
+                    />
+                </a>
             </div>
             <span>Created using Next.js</span>
         </footer>

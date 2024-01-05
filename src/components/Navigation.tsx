@@ -1,6 +1,6 @@
 "use client";
 import { resumeInfo } from "@/constants/resumeInfo";
-import { IconArrowLeft } from "@tabler/icons-react";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
@@ -62,7 +62,7 @@ export const Navigation: React.FC = () => {
                         usePathname() !== "/" ? "visible" : "hidden"
                     }`}
                 >
-                    <IconArrowLeft className="w-6 h-6" />
+                    <ArrowLeft className="w-6 h-6" />
                 </Link>
             </div>
         </header>

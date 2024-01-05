@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@phosphor-icons/react": "^2.0.15",
         "@tabler/icons-react": "^2.45.0",
         "@tsparticles/react": "^3.0.0",
         "@tsparticles/slim": "^3.0.3",

@@ -23,8 +23,8 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
             <Navigation />
             <main className="flex-grow space-y-8 text-neutral-800 bg-neutral-100">
                 <div className="min-h-96 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
-                    <h1 className="text-3xl md:text-5xl">{item?.title}</h1>
-                    <p className="pt-6">{item.description}</p>
+                    <h1 className="text-3xl md:text-5xl text-center">{item?.title}</h1>
+                    <p className="pt-6 text-center">{item.description}</p>
                     <ul className="pt-4 list-none flex flex-wrap">
                         {item.skills.map((skill) => (
                             <li key={skill} className="pr-2">

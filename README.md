@@ -10,3 +10,4 @@
 - <https://stackoverflow.com/questions/72158991/grid-of-unequal-heights-in-tailwindcss>
 - <https://stackoverflow.com/questions/51843119/next-js-react-go-back-to-the-previous-page>
 - <https://stackoverflow.com/questions/40248643/typescript-sort-by-date-not-working>
+- <https://www.w3schools.com/howto/howto_js_navbar_sticky.asp>

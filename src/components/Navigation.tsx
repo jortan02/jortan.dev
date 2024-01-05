@@ -34,7 +34,7 @@ export const Navigation: React.FC = () => {
         <header className={`h-[72px] sticky top-0 duration-200 ${
             isScrolled ? "bg-neutral-900 border-b border-neutral-800" : "bg-transparent border-b border-transparent"
           }`}>
-            <div className="px-4 py-6 mx-[3vw] flex flex-row-reverse items-center justify-between">
+            <div className="px-4 py-6 mx-[3vw] text-sm md:text-base flex flex-row-reverse items-center justify-between">
                 <div className="flex justify-between gap-8">
                     <a
                         href={resumeInfo.resume}

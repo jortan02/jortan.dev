@@ -25,7 +25,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                 <div className="min-h-96 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
                     <h1 className="text-3xl md:text-5xl text-center">{item?.title}</h1>
                     <p className="pt-6 text-center">{item.description}</p>
-                    <ul className="pt-4 list-none flex flex-wrap">
+                    <ul className="pt-4 text-sm list-none flex items-center justify-center flex-wrap">
                         {item.skills.map((skill) => (
                             <li key={skill} className="pr-2">
                                 {skill}

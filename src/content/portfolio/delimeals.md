@@ -6,7 +6,7 @@ date: 2022-12-24
 category: Mobile App
 skills: [Dart, Flutter]
 slug: delimeals
-repository: jortan02/delimeals_app
+repository: delimeals_app
 ---
 
 ![DeliMeals screenshot](/images/portfolio/DeliMeals.png)

@@ -7,7 +7,7 @@ category: Website
 skills: [TypeScript, HTML, Tailwind CSS, Next.js, Markdown]
 slug: jortan-dev
 url: jortan.vercel.app
-repository: jortan02/jortan.dev
+repository: jortan.dev
 ---
 
 ![jortan.dev screenshot](/images/portfolio/jortan.dev.png)

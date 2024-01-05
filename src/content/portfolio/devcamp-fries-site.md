@@ -6,7 +6,7 @@ date: 2020-06-04
 category: Website
 skills: [HTML, SASS]
 slug: devcamp-fries-site
-repository: jortan02/html-css
+repository: html-css
 ---
 
 ![Devcamp Fries Site screenshot](/images/portfolio/Devcamp_Fries.png)

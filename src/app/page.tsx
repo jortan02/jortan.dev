@@ -12,10 +12,10 @@ export default function Home() {
                         jortan
                     </h1>
                     <h2 className="max-w-3xl my-8 text-center text-sm">
-                        Hi, my name is Jordan. I am a computer science student
-                        at the University of Utah. Currently, I am working on my
-                        bachelor&apos;s thesis on compositionality behavior in
-                        large language models.
+                        Hi, my name is Jordan. I am a computer science BS/MS
+                        student at the University of Utah. Currently, I am
+                        pursuing the data management and analysis track and am
+                        expected to graduate Spring 2025.
                     </h2>
                 </div>
                 <ParticlesContainer />

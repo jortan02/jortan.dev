@@ -47,6 +47,7 @@ export default function PortfolioIndex() {
                     </button>
                     {categories.map((category) => (
                         <button
+                            key={category}
                             className={`duration-200 hover:text-neutral-100 ${
                                 filter === category
                                     ? "text-neutral-100"

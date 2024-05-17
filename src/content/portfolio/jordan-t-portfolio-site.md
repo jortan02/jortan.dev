@@ -5,7 +5,7 @@ description: Jordan Tan React Site was created using React as part of Devcamp's 
 date: 2020-06-21
 category: Website
 skills: [JavaScript, React, HTML, SASS, REST]
-slug: jordan-t-portfolio-site-devcamp
+slug: jordan-t-portfolio-site
 repository: jordan-tan-react-portfolio
 ---
 

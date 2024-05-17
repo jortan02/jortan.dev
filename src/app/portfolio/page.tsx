@@ -34,7 +34,7 @@ export default function PortfolioIndex() {
                     <div className="mt-4 w-full h-px bg-neutral-400" />
                 </div>
 
-                <div className="flex flex-wrap justify-around">
+                <div className="flex flex-wrap justify-around text-sm">
                     <button
                         className={`duration-200 hover:text-neutral-100 ${
                             filter === null

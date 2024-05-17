@@ -1,7 +1,7 @@
 ---
 published: true
 title: Replicating SelfExplain
-description: A coursework project for CS 6957 (NLP w/ Deep Learning) that replicates a part of Rajagopal et. al's SelfExplain architecture.
+description: A coursework project that replicates a part of Rajagopal et. al's SelfExplain architecture.
 date: 2023-11-30
 category: Project
 skills: [Python, NumPy, pandas, HuggingFace]

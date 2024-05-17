@@ -1,7 +1,7 @@
 ---
 published: true
 title: Partitioned Learned Bloom Filter
-description: A coursework project for CS 4964 (Managing Data For ML) that replicates Vaidya et. al's Partioned Learn Bloom Filter.
+description: A coursework project that replicates Vaidya et. al's Partioned Learn Bloom Filter.
 date: 2024-03-23
 category: Project
 skills: [Python, NumPy, pandas, scikit-learn]

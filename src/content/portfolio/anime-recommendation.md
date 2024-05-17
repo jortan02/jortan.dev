@@ -1,7 +1,7 @@
 ---
 published: true
 title: Anime Recommendation System
-description: A coursework project for CS 5140 (Data Mining) that employed data analytics and statistical predictions on user data from MyAnimeList.
+description: A coursework project that employed data analytics and statistical predictions on user data from MyAnimeList.
 date: 2023-03-16
 category: Project
 skills: [Python, NumPy, pandas]

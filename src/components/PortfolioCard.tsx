@@ -14,7 +14,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item }) => {
                     <p className="text-xs">{new Date(item.date).toLocaleDateString("en-US")}</p>
                     <p className="text-xs">{item.category.toUpperCase()}</p>
                 </div>
-                <h2 className="pt-2 text-2xl">{item.title}</h2>
+                <h2 className="pt-2 text-xl">{item.title}</h2>
                 <p className="pt-3 text-sm">{item.description}</p>
                 <ul className="pt-3 list-none flex flex-wrap">
                     {item.skills.map((skill) => (

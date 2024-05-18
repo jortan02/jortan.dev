@@ -64,7 +64,7 @@ export default function PortfolioIndex() {
                 <div className="hidden md:flex flex-row space-y-0 space-x-4">
                     <div className="flex w-full flex-col space-y-4">
                         {shownItems
-                            .filter((_, index) => index % 2 === 0)
+                            .filter((_, index) => index % 3 === 0)
                             .map((project) => (
                                 <PortfolioCard
                                     key={project.slug}
@@ -74,7 +74,17 @@ export default function PortfolioIndex() {
                     </div>
                     <div className="flex w-full flex-col space-y-4">
                         {shownItems
-                            .filter((_, index) => index % 2 === 1)
+                            .filter((_, index) => index % 3 === 1)
+                            .map((project) => (
+                                <PortfolioCard
+                                    key={project.slug}
+                                    item={project}
+                                />
+                            ))}
+                    </div>
+                    <div className="flex w-full flex-col space-y-4">
+                        {shownItems
+                            .filter((_, index) => index % 3 === 2)
                             .map((project) => (
                                 <PortfolioCard
                                     key={project.slug}

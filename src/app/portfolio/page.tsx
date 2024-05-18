@@ -36,7 +36,7 @@ export default function PortfolioIndex() {
 
                 <div className="flex flex-wrap justify-around text-sm">
                     <button
-                        className={`duration-200 hover:text-neutral-100 ${
+                        className={`m-1 duration-200 hover:text-neutral-100 ${
                             filter === null
                                 ? "text-neutral-100"
                                 : "text-neutral-400"
@@ -48,7 +48,7 @@ export default function PortfolioIndex() {
                     {categories.map((category) => (
                         <button
                             key={category}
-                            className={`duration-200 hover:text-neutral-100 ${
+                            className={`m-1 duration-200 hover:text-neutral-100 ${
                                 filter === category
                                     ? "text-neutral-100"
                                     : "text-neutral-400"

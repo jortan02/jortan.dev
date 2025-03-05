@@ -1,5 +1,4 @@
 "use client";
-import { resumeInfo } from "@/constants/resumeInfo";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,13 +35,6 @@ export const Navigation: React.FC = () => {
           }`}>
             <div className="px-4 py-6 mx-[3vw] text-sm md:text-base flex flex-row-reverse items-center justify-between">
                 <div className="flex justify-between gap-8">
-                    <a
-                        href={resumeInfo.resume}
-                        target="_blank"
-                        className="duration-200 text-neutral-400 hover:text-neutral-100"
-                    >
-                        Resume
-                    </a>
                     <Link
                         href="/portfolio"
                         className="duration-200 text-neutral-400 hover:text-neutral-100"

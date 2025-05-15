@@ -3,7 +3,7 @@ published: true
 title: Data-centric ML Regression Project
 description: Applied data engineering techniques to improve a regression model predicting flight delays.
 date: 2024-03-01
-category: Independent
+category: Project
 skills: [Python, scikit-learn, pandas]
 ---
 

@@ -5,7 +5,6 @@ description: A recipe app created using Flutter. Part of Academind's Flutter & D
 date: 2022-12-24
 category: Mobile App
 skills: [Dart, Flutter]
-slug: delimeals
 repository: delimeals_app
 ---
 

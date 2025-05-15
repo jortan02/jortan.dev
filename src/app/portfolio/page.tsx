@@ -60,47 +60,16 @@ export default function PortfolioIndex() {
                     ))}
                 </div>
 
-                {/* Larger screens */}
-                <div className="hidden md:flex flex-row space-y-0 space-x-4">
-                    <div className="flex w-full flex-col space-y-4">
-                        {shownItems
-                            .filter((_, index) => index % 3 === 0)
-                            .map((project) => (
-                                <PortfolioCard
-                                    key={project.slug}
-                                    item={project}
-                                />
-                            ))}
-                    </div>
-                    <div className="flex w-full flex-col space-y-4">
-                        {shownItems
-                            .filter((_, index) => index % 3 === 1)
-                            .map((project) => (
-                                <PortfolioCard
-                                    key={project.slug}
-                                    item={project}
-                                />
-                            ))}
-                    </div>
-                    <div className="flex w-full flex-col space-y-4">
-                        {shownItems
-                            .filter((_, index) => index % 3 === 2)
-                            .map((project) => (
-                                <PortfolioCard
-                                    key={project.slug}
-                                    item={project}
-                                />
-                            ))}
-                    </div>
-                </div>
-
-                {/* Smaller screens */}
-                <div className="flex md:hidden flex-row space-y-4">
-                    <div className="flex w-full flex-col space-y-4">
-                        {shownItems.map((project) => (
-                            <PortfolioCard key={project.slug} item={project} />
+                <div className="flex flex-col md:flex-row gap-4">
+                {[0, 1, 2].map((columnIndex) => (
+                    <div key={columnIndex} className="flex flex-col gap-4 flex-1">
+                    {shownItems
+                        .filter((_, index) => index % 3 === columnIndex)
+                        .map((project) => (
+                        <PortfolioCard key={project.slug} item={project} />
                         ))}
                     </div>
+                ))}
                 </div>
             </main>
             <Footer />

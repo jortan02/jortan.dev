@@ -5,7 +5,6 @@ description: A research project supervised by Professor Vivek Srikumar on how la
 date: 2023-09-24
 category: Research
 skills: [Python, HuggingFace, Slurm]
-slug: examining-compositional
 url: docs.google.com/presentation/d/1E8iCQb2ft1BG55gx3ug1KR_GFp9a8woTEknGuJlETbA/edit?usp=sharing
 repository: compositional_task_evaluation
 ---

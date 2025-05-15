@@ -5,7 +5,6 @@ description: The website you are looking at.
 date: 2023-12-29
 category: Website
 skills: [TypeScript, HTML, Tailwind CSS, Next.js, Markdown]
-slug: jortan-dev
 url: jortan.vercel.app
 repository: jortan.dev
 ---

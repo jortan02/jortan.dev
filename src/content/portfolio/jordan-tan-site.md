@@ -5,7 +5,6 @@ description: A personal blog and portfolio website made using Gatsby.
 date: 2021-06-17
 category: Website
 skills: [JavaScript, HTML, SASS, Gatsby, GraphQL, Strapi]
-slug: jortan-site
 url: magnificent-trifle-352d6c.netlify.app
 repository: jortan-site
 ---

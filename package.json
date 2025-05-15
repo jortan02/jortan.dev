@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:content": "contentlayer2 build",
         "start": "next start",
         "lint": "next lint"
     },
@@ -15,9 +16,9 @@
         "@tsparticles/slim": "^3.0.3",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.2",
-        "contentlayer": "^0.3.4",
+        "contentlayer2": "^0.4.6",
         "next": "14.0.4",
-        "next-contentlayer": "^0.3.4",
+        "next-contentlayer2": "^0.4.6",
         "react": "^18",
         "react-dom": "^18",
         "react-markdown": "^9.0.1"
@@ -37,7 +38,7 @@
         "typescript": "^5"
     },
     "overrides": {
-        "next-contentlayer": {
+        "next-contentlayer2": {
             "next": "$next"
         }
     }

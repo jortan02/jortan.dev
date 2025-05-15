@@ -1,3 +1,4 @@
+import { Inter } from 'next/font/google'
 import { allPortfolios } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
@@ -6,6 +7,11 @@ import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 
 import { contactInfo } from "@/constants/contactInfo";
+
+const contentFont = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 interface Params {
     params: {
@@ -54,7 +60,7 @@ const Page: React.FC<Params> = ({ params: { slug } }) => {
                     </div>
                 </div>
                 <ReactMarkdown
-                    className="px-4 pb-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6"
+                    className={`px-4 pb-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6 ${contentFont.className}`}
                     components={{
                         img: (props) => (
                             <span className="flex justify-center">

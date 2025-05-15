@@ -5,7 +5,6 @@ description: Spreadsheet is an application that takes in strings and numbers lik
 date: 2021-10-12
 category: Desktop App
 skills: [C#, WinForms]
-slug: spreadsheet
 ---
 
 ![Spreadsheet screenshot](/images/portfolio/Spreadsheet.png)

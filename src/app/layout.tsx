@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         default: "jortan.dev",
         template: "%s | jortan.dev",
     },
-    description: "Computer science student at the University of Utah",
+    description: "Software developer and ML engineer with full-stack experience and a focus on building practical AI systems.",
 };
 
 export default function RootLayout({

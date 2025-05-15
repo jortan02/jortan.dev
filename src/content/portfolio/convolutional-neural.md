@@ -5,7 +5,6 @@ description: A project that creates a convolutional neural network for image cla
 date: 2023-10-08
 category: Project
 skills: [Python, NumPy]
-slug: convolutional-neural
 ---
 
 A coursework project for CS 5353 (Deep Learning) that creates a convolutional neural network for image

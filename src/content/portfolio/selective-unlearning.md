@@ -5,7 +5,6 @@ description: An NSF-sponsored research project on ensemble models for machine un
 date: 2023-06-28
 category: Research
 skills: [Python, Pytorch]
-slug: selective-unlearning
 url: docs.google.com/presentation/d/1ZiuXadZMVvYtrFtaREbwJNeWGyYnZwKc-gf4cEZRP-Y/edit?usp=sharing
 repository: machine_unlearning
 ---

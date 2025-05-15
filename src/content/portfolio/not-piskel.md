@@ -5,7 +5,6 @@ description: Not Piskel is a sprite sheet editor software created using C++ and 
 date: 2022-03-25
 category: Desktop App
 skills: [C++, Qt]
-slug: not-piskel
 ---
 
 ![Not Piskel screenshot](/images/portfolio/Not_Piskel.png)

@@ -5,7 +5,6 @@ description: Devcamp Fries Site was created using HTML and CSS as part of Devcam
 date: 2020-06-04
 category: Website
 skills: [HTML, SASS]
-slug: devcamp-fries-site
 repository: html-css
 ---
 

@@ -5,7 +5,6 @@ description: Parking Simulator is an educational app that teaches users how to p
 date: 2022-04-08
 category: Desktop App
 skills: [C++, Qt, Box2D]
-slug: parking-simulator
 ---
 
 ![Parking Simulator screenshot](/images/portfolio/Parking_Simulator.png)

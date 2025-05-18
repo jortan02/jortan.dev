@@ -1,7 +1,7 @@
 ---
 published: true
 title: Logging and Recovery
-description: A coursework project for CS 6530 (Advanced Database Systems) aimed at creating write-ahead logging, checkpointing, and recovery for a B-ε tree-based key-value store.
+description: A coursework project aimed at creating write-ahead logging, checkpointing, and recovery for a B-ε tree-based key-value store.
 date: 2024-10-18
 category: Project
 skills: [C++]

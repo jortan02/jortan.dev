@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: Package Query Experiment
 description: Built three executor strategies for package queries using ILP and a SketchRefine approach with PuLP.
 date: 2025-03-01

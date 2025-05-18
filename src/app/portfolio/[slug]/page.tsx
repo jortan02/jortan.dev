@@ -20,7 +20,9 @@ interface Params {
 	};
 }
 
-const Page: React.FC<Params> = ({ params: { slug } }) => {
+const Page: React.FC<Params> = async ({ params }: Params) => {
+	const { slug } = await params
+
 	const item = allPortfolios.find((item) => item.slug === slug);
 	if (!item) {
 		notFound();

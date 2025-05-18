@@ -1,7 +1,7 @@
 ---
 published: true
 title: Drawing App
-description: A coursework project for CS 4530 (Mobile Application Programming) to create an Android drawing app.
+description: A coursework project to create an Android drawing app.
 date: 2024-02-09
 category: Mobile App
 skills: [Kotlin, Firebase, Android]

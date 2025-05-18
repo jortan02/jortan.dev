@@ -14,14 +14,12 @@ const contentFont = Inter({
 	fallback: ["sans-serif"],
 });
 
-interface Params {
-	params: {
-		slug: string;
-	};
-}
+type PageProps = {
+	params: Promise<{ slug: string }>;
+};
 
-const Page: React.FC<Params> = async ({ params }: Params) => {
-	const { slug } = await params
+export default async function Page({ params }: PageProps) {
+	const { slug } = await params;
 
 	const item = allPortfolios.find((item) => item.slug === slug);
 	if (!item) {
@@ -63,7 +61,9 @@ const Page: React.FC<Params> = async ({ params }: Params) => {
 					</ul>
 					<div className="pt-12 space-x-6">
 						{item.repository ? (
-							<LinkButton href={`https://${contactInfo.github}/${item.repository}`}>
+							<LinkButton
+								href={`https://${contactInfo.github}/${item.repository}`}
+							>
 								GitHub →
 							</LinkButton>
 						) : null}
@@ -97,6 +97,4 @@ const Page: React.FC<Params> = async ({ params }: Params) => {
 			<Footer />
 		</div>
 	);
-};
-
-export default Page;
+}

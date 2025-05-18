@@ -1,6 +1,6 @@
 ---
 published: true
-title: Replicating Logical Inference via Neurosymbolic Computation
+title: Replicating LINC
 description: A coursework project that replicates Olausson et al.'s Logical Inference via Neurosymbolic Computation (LINC) framework.
 date: 2024-10-20
 category: Project

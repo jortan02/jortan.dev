@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<div className="min-h-screen flex flex-col justify-start">
 			<Navigation />
-			<main className="px-4 flex-grow flex flex-col items-center justify-center">
+			<main className="px-4 grow flex flex-col items-center justify-center">
 				<div className="flex flex-col items-center justify-center">
 					<h1 className="my-8 text-neutral-50 text-6xl md:text-9xl">
 						jortan

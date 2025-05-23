@@ -46,7 +46,7 @@ export default async function Page({ params }: PageProps) {
 	return (
 		<div className="min-h-screen flex flex-col justify-start">
 			<Navigation />
-			<main className="flex-grow space-y-8 text-neutral-800 bg-neutral-100">
+			<main className="grow space-y-8 text-neutral-800 bg-neutral-100">
 				<div className="min-h-96 pb-8 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
 					<h1 className="text-neutral-50 text-3xl md:text-5xl text-center">
 						{item?.title}

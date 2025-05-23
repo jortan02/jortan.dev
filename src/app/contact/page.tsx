@@ -35,7 +35,7 @@ export default async function ContactIndex() {
 	return (
 		<div className="min-h-screen flex flex-col justify-start">
 			<Navigation />
-			<main className="flex-grow flex flex-col items-center justify-center">
+			<main className="grow flex flex-col items-center justify-center">
 				<div>
 					<h1 className="text-neutral-50 text-4xl">Contact</h1>
 					<div className="mt-4 w-full h-px bg-neutral-400" />

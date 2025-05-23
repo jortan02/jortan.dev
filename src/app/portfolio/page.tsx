@@ -74,7 +74,7 @@ export default function PortfolioIndex() {
 	return (
 		<div className="w-full min-h-screen flex flex-col justify-start">
 			<Navigation />
-			<main className="px-4 pb-16 w-full mx-auto flex-grow max-w-4xl space-y-8">
+			<main className="px-4 pb-16 w-full mx-auto grow max-w-4xl space-y-8">
 				<div>
 					<h1 className="text-neutral-50 text-4xl">Portfolio</h1>
 					<div className="mt-4 w-full h-px bg-neutral-400" />

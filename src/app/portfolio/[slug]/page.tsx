@@ -47,7 +47,7 @@ export default async function Page({ params }: PageProps) {
 		<div className="min-h-screen flex flex-col justify-start">
 			<Navigation />
 			<main className="flex-grow space-y-8 text-neutral-800 bg-neutral-100">
-				<div className="min-h-96 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
+				<div className="min-h-96 pb-8 px-4 flex flex-col items-center justify-center text-neutral-300 bg-neutral-900">
 					<h1 className="text-neutral-50 text-3xl md:text-5xl text-center">
 						{item?.title}
 					</h1>
@@ -74,7 +74,7 @@ export default async function Page({ params }: PageProps) {
 						) : null}
 					</div>
 				</div>
-				<div className={`prose px-4 pt-8 pb-8 mx-auto max-w-4xl flex flex-col justify-start text-justify space-y-6 ${contentFont.className}`}>
+				<div className={`prose px-4 pt-4 pb-8 mx-auto max-w-4xl flex flex-col justify-start text-justify space-y-6 ${contentFont.className}`}>
 					<ReactMarkdown
 						components={{
 							img: (props) => (

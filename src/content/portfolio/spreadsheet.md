@@ -9,11 +9,11 @@ skills: [C#, WinForms, XML]
 
 ![Spreadsheet screenshot](/images/portfolio/Spreadsheet.png)
 
-## Overview
+### Overview
 
 A comprehensive spreadsheet application developed as a pair project for CS 3500 (Software Design I) at the University of Utah. This project involved creating a fully functional spreadsheet application with capabilities similar to commercial spreadsheet software, including expression evaluation, data persistence, and an intuitive user interface, demonstrating software design principles and user interface development.
 
-## Key Features
+### Key Features
 
 - Cell-based data entry and manipulation
 - Mathematical expression evaluation
@@ -21,7 +21,7 @@ A comprehensive spreadsheet application developed as a pair project for CS 3500 
 - Real-time cell updates and formula propagation
 - Data validation and error reporting
 
-## Technical Implementation
+### Technical Implementation
 
 - Built a cell management system for tracking contents and dependencies
 - Developed an expression parser and evaluator for formula support

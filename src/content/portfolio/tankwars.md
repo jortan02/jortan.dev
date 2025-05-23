@@ -9,11 +9,11 @@ skills: [C#, WinForms, TCP, JSON]
 
 ![TankWars screenshot](/images/portfolio/TankWars.png)
 
-## Overview
+### Overview
 
 TankWars is a real-time multiplayer tank battle game developed as a pair programming project for CS 3500 (Software Design I) at the University of Utah. It showcases advanced concepts in software architecture, network synchronization, and game development. The game enables players to engage in competitive tank combat, supported by a robust client-server model and real-time event handling.
 
-## Key Features
+### Key Features
 
 - Real-time multiplayer gameplay across multiple clients
 - Client-server architecture for centralized control and consistency
@@ -21,7 +21,7 @@ TankWars is a real-time multiplayer tank battle game developed as a pair program
 - Interactive tank movement and combat mechanics
 - Dynamic events and real-time score tracking
 
-## Technical Implementation
+### Technical Implementation
 
 - Followed MVC architecture for modular, maintainable code
 - Built a TCP-based client-server model for game synchronization

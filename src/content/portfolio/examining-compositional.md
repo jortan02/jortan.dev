@@ -9,18 +9,18 @@ url: https://docs.google.com/presentation/d/1E8iCQb2ft1BG55gx3ug1KR_GFp9a8woTEkn
 repository: compositional_task_evaluation
 ---
 
-## Overview
+### Overview
 
-This bachelor's thesis, supervised by Professor Vivek Srikumar, explores the compositional capabilities of large language models (LLMs). The project investigates whether in-context examples of subtasks—rather than complete tasks—can improve model performance in compositional reasoning scenarios. The research focused on tasks involving multi-digit multiplication and word list operations, analyzed under various prompting conditions using few-shot setups.
+My bachelor's thesis, supervised by Professor Vivek Srikumar, explores the compositional capabilities of large language models (LLMs). The project investigates whether in-context examples of subtasks—rather than complete tasks—can improve model performance in compositional reasoning scenarios. The research focused on tasks involving multi-digit multiplication and word list operations, analyzed under various prompting conditions using few-shot setups.
 
-## Key Findings
+### Key Findings
 
 - Subtask-based few-shot prompts showed limited or inconsistent gains
 - Flan-T5 struggled with list-based operations more than expected
 - Performance was highly sensitive to prompt format and example selection
 - Models exhibited task-specific reasoning gaps, even with relevant examples
 
-## Technical Implementation
+### Technical Implementation
 
 - Independently implemented all experiments and research infrastructure
 - Manually crafted and iterated on dozens of in-context prompt formats
@@ -29,7 +29,7 @@ This bachelor's thesis, supervised by Professor Vivek Srikumar, explores the com
 - Developed comparison tools to measure accuracy and stability across models
 - Visualized model performance trends using matplotlib
 
-## Research Components
+### Research Components
 
 - Prompt engineering: manual experimentation with few-shot examples
 - Data pipeline for generating task variants and model inputs

@@ -9,11 +9,11 @@ skills: [Kotlin, Android, Firebase, C++, Jetpack]
 
 ![Drawing App screenshot](/images/portfolio/Drawing_App.png)
 
-## Overview
+### Overview
 
 This coursework project for CS 4530 (Mobile Application Programming) demonstrates modern Android development practices and real-time collaboration features. The Drawing App is a feature-rich Android application that allows users to create, save, and share digital artwork. Built using Kotlin and following the MVVM architecture pattern, the app offers a smooth and intuitive drawing experience with robust user authentication, image augmentation, and cloud-backed persistence.
 
-## Key Features
+### Key Features
 
 - User authentication and profile management via Firebase
 - Multiple drawing tools: color picker and three brush types (normal, stamp, spray)
@@ -22,7 +22,7 @@ This coursework project for CS 4530 (Mobile Application Programming) demonstrate
 - Image augmentation tools implemented in C++ (invert, grayscale)
 - Intuitive Material Design UI with responsive performance
 
-## Technical Implementation
+### Technical Implementation
 
 - Built on MVVM architecture to ensure scalability and testability
 - Integrated Firebase Authentication for secure user access
@@ -32,7 +32,7 @@ This coursework project for CS 4530 (Mobile Application Programming) demonstrate
 - Supported collaborative drawing using Firebase Realtime Database
 - Managed UI state and data flow using Android Jetpack components
 
-## My Contributions
+### My Contributions
 
 - Set up the project's Gradle configuration and navigation structure
 - Developed the login screen and integrated Firebase Authentication

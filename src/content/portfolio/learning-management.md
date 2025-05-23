@@ -7,11 +7,11 @@ category: Project
 skills: [C#, MySQL, Entity Framework, LINQ]
 ---
 
-## Overview
+### Overview
 
 This coursework project for CS 5530 (Database Systems) demonstrates advanced database design and implementation skills through the creation of a full-featured learning management system backend. The project involved designing and implementing a complete backend system for a learning management platform similar to Canvas. Working in a pair programming environment, we created a robust database architecture with comprehensive user management and course administration capabilities.
 
-## Key Features
+### Key Features
 
 - Role-based access control system
 - Course management and enrollment
@@ -20,7 +20,7 @@ This coursework project for CS 5530 (Database Systems) demonstrates advanced dat
 - Relational data integrity
 - Web-based administration interface
 
-## Technical Implementation
+### Technical Implementation
 
 - Designed and implemented Entity-Relationship (ER) diagram
 - Created MySQL database schemas with proper constraints

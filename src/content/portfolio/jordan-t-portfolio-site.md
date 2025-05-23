@@ -10,11 +10,11 @@ repository: jordan-tan-react-portfolio
 
 ![Jordan T. Portfolio Site (Devcamp) screenshot](/images/portfolio/Jordan_T_Portfolio.png)
 
-## Overview
+### Overview
 
 This comprehensive portfolio website, developed as part of Devcamp's React JS course, demonstrates modern web development practices and full-stack integration capabilities. It showcases professional work and blog content, featuring dynamic content management, user authentication, and interactive portfolio filtering. Built with React and integrated with a REST API backend, it highlights the seamless integration of frontend and backend technologies.
 
-## Key Features
+### Key Features
 
 - Portfolio item filtering
 - Blog post integration
@@ -23,7 +23,7 @@ This comprehensive portfolio website, developed as part of Devcamp's React JS co
 - Responsive design
 - Dynamic content loading
 
-## Technical Implementation
+### Technical Implementation
 
 - Created modular React components for UI rendering and interactivity
 - Integrated REST API for blog posts, portfolio items, and user sessions

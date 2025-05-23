@@ -9,20 +9,20 @@ url: https://docs.google.com/presentation/d/1ZiuXadZMVvYtrFtaREbwJNeWGyYnZwKc-gf
 repository: machine_unlearning
 ---
 
-## Overview
+### Overview
 
 This NSF-sponsored research project investigates machine unlearning, the process of removing the influence of specific data points from trained machine learning models. This is essential for privacy-preserving systems where users may request their data to be deleted, and retraining a model from scratch is inefficient or impractical.
 
 To address this, we propose an ensemble-based method: a collection of models, each trained on random subsets of the dataset. When unlearning is required, only the affected models are replaced, avoiding full retraining and enabling continual learning.
 
-## Key Findings
+### Key Findings
 
 - Ensemble models trained on randomized data subsets can support selective unlearning by retraining only a subset of the ensemble
 - Achieved better validation loss and accuracy than a larger monolithic ResNet-152 model despite using fewer total parameters
 - The system supports online-style learning, where data is introduced incrementally and unlearning requests can be processed efficiently
 - Demonstrated that privacy compliance and model performance need not be mutually exclusive
 
-## Technical Implementation
+### Technical Implementation
 
 - Architecture: Ensemble of five ResNet-18 models (11.4M parameters each)
 - Baseline Comparison: Single ResNet-152 (58.5M parameters) without unlearning

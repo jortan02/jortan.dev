@@ -7,11 +7,11 @@ category: Project
 skills: [Python, HuggingFace, nltk, Prover9]
 ---
 
-## Overview
+### Overview
 
 This coursework project for CS 6964 (Neuro-Symbolic Modeling) explores the intersection of neural networks and symbolic reasoning by replicating and extending Olausson et al.'s Logical Inference via Neurosymbolic Computation (LINC) framework. The project combines the capabilities of large language models (LLMs) with traditional theorem provers to enhance logical reasoning capabilities in AI systems.
 
-## Key Findings
+### Key Findings
 
 - Successfully implemented the LINC pipeline and extended it with multiple LLMs
 - Beam sampling significantly reduced parsing errors compared to random sampling
@@ -19,7 +19,7 @@ This coursework project for CS 6964 (Neuro-Symbolic Modeling) explores the inter
 - Llama 3.1 8B Instruct achieved the best performance, comparable to GPT-3.5
 - Smaller instruction-tuned models outperformed larger chat-based ones on some tasks
 
-## Technical Implementation
+### Technical Implementation
 
 - Constructed the LINC pipeline:
   - Prompt generation for candidate entailments

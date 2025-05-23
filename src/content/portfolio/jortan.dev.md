@@ -11,11 +11,11 @@ repository: jortan.dev
 
 ![jortan.dev screenshot](/images/portfolio/jortan.dev.png)
 
-## Overview
+### Overview
 
 A personal portfolio website showcasing my projects and experiences, this site is built with modern web technologies, focusing on performance and maintainability. It represents a significant upgrade from my previous Gatsby-based portfolio, emphasizing improved performance, better developer experience, and easier content management. Built with Next.js and styled using Tailwind CSS, the site demonstrates modern web development practices while maintaining excellent performance metrics.
 
-## Key Features
+### Key Features
 
 - Server-side rendering for optimal performance
 - Content management using Markdown files
@@ -23,7 +23,7 @@ A personal portfolio website showcasing my projects and experiences, this site i
 - SEO optimization
 - Fast page loads and smooth transitions
 
-## Technical Implementation
+### Technical Implementation
 
 - Implemented Next.js 13+ with App Router
 - Set up Contentlayer for Markdown content management

@@ -10,18 +10,18 @@ repository: html-css
 
 ![Devcamp Fries Site screenshot](/images/portfolio/Devcamp_Fries.png)
 
-## Overview
+### Overview
 
 The Devcamp Fries Site is a responsive restaurant website developed as part of Devcamp's HTML and CSS course. It showcases modern web development techniques and responsive design principles, focusing on creating an engaging user experience while maintaining clean, maintainable code.
 
-## Key Features
+### Key Features
 
 - Responsive design
 - Modern layout techniques
 - Interactive elements
 - Cross-browser compatibility
 
-## Technical Implementation
+### Technical Implementation
 
 - Implemented responsive grid system
 - Developed navigation menu

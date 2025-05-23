@@ -9,11 +9,11 @@ skills:	[Python, Streamlit, LlamaIndex, Ragas]
 
 ![CleanRAG screenshot](/images/portfolio/CleanRAG.png)
 
-## Overview
+### Overview
 
 CleanRAG is an interactive tool built with Streamlit, designed to help developers and researchers optimize their Retrieval-Augmented Generation (RAG) systems. The application allows users to upload documents, configure text splitting and indexing strategies, and interact with the processed data through a chat interface.
 
-## Key Features
+### Key Features
 
 - Intuitive interface for document management and configuration
 - Support for multiple text splitting and indexing strategies
@@ -21,7 +21,7 @@ CleanRAG is an interactive tool built with Streamlit, designed to help developer
 - Evaluation of pipeline performance using the Ragas framework
 - Side-by-side configuration comparison for iterative optimization
 
-## Technical Implementation
+### Technical Implementation
 
 - Built with Streamlit for rapid UI development
 - Indexing powered by LlamaIndex for flexible text chunking and retrieval

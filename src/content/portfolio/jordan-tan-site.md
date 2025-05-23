@@ -11,11 +11,11 @@ repository: jortan-site
 
 ![Jordan Tan Gatsby Site screenshot](/images/portfolio/Jordan_Tan_Site.png)
 
-## Overview
+### Overview
 
 A sophisticated personal website developed using Gatsby, this project demonstrates modern web development practices by combining blog functionality with portfolio presentation. It leverages Gatsby's static site generation capabilities and Strapi's headless CMS features for efficient content management and delivery.
 
-## Key Features
+### Key Features
 
 - Blog post management
 - Portfolio showcase
@@ -24,7 +24,7 @@ A sophisticated personal website developed using Gatsby, this project demonstrat
 - Static site generation
 - Responsive design
 
-## Technical Implementation
+### Technical Implementation
 
 - Implemented Gatsby framework with static site generation
 - Integrated Strapi as a headless CMS for managing content

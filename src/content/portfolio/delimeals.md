@@ -10,11 +10,11 @@ repository: delimeals_app
 
 ![DeliMeals screenshot](/images/portfolio/DeliMeals.png)
 
-## Overview
+### Overview
 
 DeliMeals is a comprehensive recipe management application developed as part of Academind's Flutter & Dart course. It demonstrates modern mobile development practices and user interface design, helping users discover, organize, and follow recipes. The app provides an intuitive interface for browsing meal categories, saving favorites, and accessing detailed cooking instructions.
 
-## Key Features
+### Key Features
 
 - Meal categorization system
 - Favorite meals management
@@ -23,7 +23,7 @@ DeliMeals is a comprehensive recipe management application developed as part of 
 - Filtering capabilities
 - Responsive UI design
 
-## Technical Implementation
+### Technical Implementation
 
 - Implemented multi-screen navigation
 - Developed state management system

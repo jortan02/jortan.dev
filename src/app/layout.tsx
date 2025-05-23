@@ -3,7 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
-import "./globals.scss";
+import "./globals.css";
 
 const font = JetBrains_Mono({
 	weight: ["400", "700"],

@@ -1,10 +1,28 @@
 ---
 published: true
-title: Data-centric ML Regression Project
-description: A homework assignment for CS 4964 (Manage Data for & with ML) focused on teaching data cleaning techniques and pipeline development.
+title: Data-centric ML Regression
+description: A comprehensive data engineering project focused on improving flight delay prediction through advanced data cleaning and feature engineering techniques.
 date: 2024-03-01
 category: Project
-skills: [Python, scikit-learn, pandas]
+skills:	[Python, pandas, scikit-learn]
 ---
 
-A homework assignment for CS 4964 (Manage Data for & with ML) focused on teaching data cleaning techniques and pipeline development. Given an uncleaned dataset of flight data, I was tasked on enhancing a regression model for flight delay prediction. I applied data engineering techniques to improve performance, designing data pipelines for imputation and feature engineering using scikit-learn. As a result, the model's RMSE was reduced from 2,049,382 to 4.9, significantly improving its predictive accuracy.
+![Data-centric ML Regression screenshot](/images/portfolio/DataCentricML.png)
+
+## Overview
+
+This coursework project for CS 4964 (Manage Data for & with ML) highlights the importance of data quality in machine learning workflows. The goal was to improve a regression model for flight delay prediction by applying structured data preprocessing and feature engineering to a noisy, real-world dataset.
+
+## Key Achievements
+
+- Reduced RMSE from 2,049,382 to 4.9 (99.99% improvement)
+- Implemented robust data cleaning pipelines
+- Developed automated feature engineering processes
+- Created reproducible data transformation workflows
+
+## Technical Implementation
+
+- Designed and implemented data cleaning pipelines including missing value imputation and outlier handling
+- Engineered features using normalization, encoding, and time-based extraction
+- Built automated validation checks and transformation pipelines
+- Applied cross-validation and correlation analysis for feature selection

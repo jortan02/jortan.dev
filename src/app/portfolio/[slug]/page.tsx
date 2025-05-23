@@ -74,25 +74,26 @@ export default async function Page({ params }: PageProps) {
 						) : null}
 					</div>
 				</div>
-				<ReactMarkdown
-					className={`px-4 pb-16 mx-auto max-w-4xl flex flex-col justify-start space-y-6 ${contentFont.className}`}
-					components={{
-						img: (props) => (
-							<span className="flex justify-center">
-								<Image
-									src={props.src!}
-									alt={props.alt!}
-									width="0"
-									height="0"
-									sizes="100vw"
-									className="w-auto max-h-[60vh]"
-								/>
-							</span>
-						),
-					}}
-				>
-					{item.body.raw}
-				</ReactMarkdown>
+				<div className={`prose px-4 pt-8 pb-8 mx-auto max-w-4xl flex flex-col justify-start text-justify space-y-6 ${contentFont.className}`}>
+					<ReactMarkdown
+						components={{
+							img: (props) => (
+								<span className="flex justify-center">
+									<Image
+										src={props.src!}
+										alt={props.alt!}
+										width="0"
+										height="0"
+										sizes="100vw"
+										className="w-auto max-h-[60vh]"
+									/>
+								</span>
+							),
+						}}
+					>
+						{item.body.raw}
+					</ReactMarkdown>
+				</div>
 			</main>
 			<Footer />
 		</div>

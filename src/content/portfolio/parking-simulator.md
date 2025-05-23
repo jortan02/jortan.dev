@@ -1,7 +1,7 @@
 ---
 published: true
 title: Parking Simulator
-description: Parking Simulator is an educational app that teaches users how to park. It was created using C++, QT, and Box2D.
+description: An interactive educational application that teaches parking techniques through realistic physics-based simulation and scenario-based learning.
 date: 2022-04-08
 category: Desktop App
 skills: [C++, Qt, Box2D]
@@ -9,4 +9,27 @@ skills: [C++, Qt, Box2D]
 
 ![Parking Simulator screenshot](/images/portfolio/Parking_Simulator.png)
 
-Parking Simulator is an educational app that teaches users how to park. It was created using C++, QT, and Box2D. Users can select between different parking scenarios, which present a different set of tips suitable for the situation at hand. Box2D was used for the logic of driving, handling, and collisions of the car. This was a team project for CS 3505 (Software Design II) for the University of Utah.
+## Overview
+
+Parking Simulator is an educational desktop application designed to teach users various parking techniques through a realistic, physics-based simulation. Built using C++ with the Qt framework and Box2D physics engine, it combines practical tutorials with responsive vehicle control to deliver an engaging and effective learning experience.
+
+## Key Features
+
+- Multiple parking scenarios: parallel, perpendicular, and angled
+- Physics-based vehicle movement and collision detection
+- Interactive tutorials with real-time visual and textual feedback
+- Realistic vehicle dynamics and obstacle interaction
+
+## Technical Implementation
+
+- Integrated Box2D to simulate accurate vehicle physics and handling
+- Developed a vehicle control system responsive to keyboard inputs
+- Built a scenario engine for tutorial progression and difficulty scaling
+- Created a UI with Qt, including overlays and guidance elements
+- Implemented a custom collision detection and feedback mechanism
+
+## My Contributions
+
+- Designed and implemented the world rendering and vehicle simulation logic
+- Built a clear and interactive user interface using Qt
+- Developed tutorial scenarios and level logic to support guided learning

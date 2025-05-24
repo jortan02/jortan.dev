@@ -7,8 +7,6 @@ category: Project
 skills: [Python, pandas, NumPy]
 ---
 
-![Anime Recommendation System screenshot](/images/portfolio/Anime_Recommendation.png)
-
 ### Overview
 
 This coursework project for CS 5140 (Data Mining) focused on giving a variety of users new anime that they would enjoy. Using data from MyAnimeList, our team of three implemented and evaluated several recommendation strategies aimed at different types of users based on their level of interaction with anime content.

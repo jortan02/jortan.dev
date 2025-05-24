@@ -7,8 +7,6 @@ category: Project
 skills:	[Python, pandas, scikit-learn]
 ---
 
-![Data-centric ML Regression screenshot](/images/portfolio/DataCentricML.png)
-
 ### Overview
 
 This coursework project for CS 4964 (Manage Data for & with ML) highlights the importance of data quality in machine learning workflows. The goal was to improve a regression model for flight delay prediction by applying structured data preprocessing and feature engineering to a noisy, real-world dataset.

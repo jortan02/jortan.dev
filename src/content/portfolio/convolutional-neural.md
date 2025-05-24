@@ -7,8 +7,6 @@ category: Project
 skills: [Python, NumPy]
 ---
 
-![CNN screenshot](/images/portfolio/CNN.png)
-
 ### Overview
 
 This coursework project for CS 5353 (Deep Learning) demonstrates a comprehensive understanding of neural network fundamentals through the implementation of a complete convolutional neural network (CNN) from scratch using only NumPy. The project focuses on the mathematical principles behind CNNs while achieving competitive results on the CIFAR-10 image classification dataset without relying on deep learning libraries.

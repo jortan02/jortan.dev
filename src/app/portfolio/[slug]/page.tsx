@@ -113,6 +113,8 @@ export default async function Page({ params }: PageParams) {
                       alt={props.alt!}
                       width={imageSizes![props.src!].width}
                       height={imageSizes![props.src!].height}
+                      sizes="100vw"
+                      className="w-auto max-h-[60vh]"
                     />
                   ) : (
                     <Image

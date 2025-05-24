@@ -34,7 +34,7 @@ async function getPostWithImageSizes(slug: string) {
   while (!(match = iterator.next()).done) {
     const [, src] = match.value;
     try {
-      const { width, height } = await imageSizeFromFile(join("public", src));
+      const { width, height } = await imageSizeFromFile(join(process.cwd(), "public", src));
       imageSizes[src] = { width, height };
     } catch (err) {
       console.error(`Can’t get dimensions for ${src}:`, err);

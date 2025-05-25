@@ -13,8 +13,7 @@ export default function Home() {
 					</h1>
 					<h2 className="max-w-3xl my-8 text-center text-sm">
 						Hi, my name is Jordan. I am a recent BS/MS Computer
-						Science graduate from the University of Utah, focused on
-						software engineering and machine learning. I enjoy
+						Science graduate from the University of Utah. I enjoy
 						building intelligent systems, from LLM tools to computer
 						vision pipelines, as well as web and mobile apps.
 					</h2>

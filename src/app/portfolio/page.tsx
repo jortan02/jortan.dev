@@ -52,9 +52,13 @@ export default function PortfolioIndex() {
 					<div className="flex flex-col">
 						<div className="flex justify-between">
 							<p className="text-xs">
-								{new Date(item.date).toLocaleDateString("en-US")}
+								{new Date(item.date).toLocaleDateString(
+									"en-US"
+								)}
 							</p>
-							<p className="text-xs">{item.category.toUpperCase()}</p>
+							<p className="text-xs">
+								{item.category.toUpperCase()}
+							</p>
 						</div>
 						<h2 className="pt-2 text-xl">{item.title}</h2>
 						<p className="pt-3 text-sm">{item.description}</p>
@@ -97,7 +101,8 @@ export default function PortfolioIndex() {
 					))}
 				</div>
 
-				<div className="flex flex-col md:flex-row gap-4">
+				{/* Larger screens: 3 columns */}
+				<div className="hidden md:flex flex-col md:flex-row gap-4">
 					{[0, 1, 2].map((columnIndex) => (
 						<div
 							key={columnIndex}
@@ -112,6 +117,13 @@ export default function PortfolioIndex() {
 									/>
 								))}
 						</div>
+					))}
+				</div>
+
+				{/* Smaller screens: 1 column (preserves date order) */}
+				<div className="flex md:hidden flex-col gap-4">
+					{shownItems.map((project) => (
+						<PortfolioCard key={project.slug} item={project} />
 					))}
 				</div>
 			</main>

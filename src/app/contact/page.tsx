@@ -15,15 +15,18 @@ export default async function ContactIndex() {
 		icon,
 		link,
 		name,
+		isExternal
 	}: {
 		icon: React.ReactNode;
 		link: string;
 		name: string;
+		isExternal: boolean;
 	}) => {
 		return (
 			<a
 				href={link}
-				target="_blank"
+				target={isExternal ? "_blank" : undefined}
+				rel={isExternal ? "noopener noreferrer" : undefined}
 				className="w-full h-20 px-6 border rounded-lg flex items-center justify-between space-x-6 duration-200 border-neutral-400 hover:border-neutral-100 text-neutral-400 hover:text-neutral-100"
 			>
 				{icon}
@@ -52,16 +55,19 @@ export default async function ContactIndex() {
 							icon={<Envelope size={cardIconSize} />}
 							link={`mailto:${contactInfo.email}`}
 							name={contactInfo.email}
+							isExternal={false}
 						/>
 						<ContactCard
 							icon={<GithubLogo size={cardIconSize} />}
 							link={`https://${contactInfo.github}`}
 							name={contactInfo.github}
+							isExternal={true}
 						/>
 						<ContactCard
 							icon={<LinkedinLogo size={cardIconSize} />}
 							link={`https://${contactInfo.linkedin}`}
 							name={contactInfo.linkedin}
+							isExternal={true}
 						/>
 					</div>
 				</div>

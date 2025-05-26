@@ -4,7 +4,7 @@ title: Package Query Experiment
 description: Implementation and comparison of multiple approaches for efficient package query execution, including an adaptation of the SketchRefine technique.
 date: 2025-03-01
 category: Project
-skills: [Python, HuggingFace, Prover9]
+skills: [Python, HuggingFace, PuLP]
 ---
 
 ### Overview

@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { monoFont } from "@/styles/fonts";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ChatToggle } from "@/components/ChatToggle";
 
 import "./globals.css";
 
-const font = JetBrains_Mono({
-	weight: ["400", "700"],
-	style: ["normal", "italic"],
-	subsets: ["latin"],
-	display: "swap",
-	fallback: ["monospace"],
-});
 
 export const metadata: Metadata = {
 	title: {
@@ -29,7 +23,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${font.className}`}>{children}</body>
+			<body className={`${monoFont.className}`}>
+				{children}
+				<ChatToggle />
+			</body>
 			<SpeedInsights />
 			<Analytics />
 		</html>

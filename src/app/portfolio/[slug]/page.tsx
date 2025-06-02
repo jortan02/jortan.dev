@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { sansSerifFont } from "@/styles/fonts";
 import { Portfolio, allPortfolios } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
@@ -9,12 +9,6 @@ import { imageSizeFromFile } from "image-size/fromFile";
 import { join } from "path";
 
 import { contactInfo } from "@/constants/contactInfo";
-
-const contentFont = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["sans-serif"],
-});
 
 type PageParams = {
   params: Promise<{ slug: string }>;
@@ -101,7 +95,7 @@ export default async function Page({ params }: PageParams) {
           </div>
         </div>
         <div
-          className={`prose px-4 pt-4 pb-8 mx-auto max-w-4xl flex flex-col justify-start text-justify space-y-6 ${contentFont.className}`}
+          className={`prose px-4 pt-4 pb-8 mx-auto max-w-4xl flex flex-col justify-start text-justify space-y-6 ${sansSerifFont.className}`}
         >
           <ReactMarkdown
             components={{

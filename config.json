@@ -1,0 +1,6 @@
+{
+	"SOURCE_DIR": "src/content/portfolio",
+	"COLLECTION_NAME": "portfolio",
+	"EMBEDDING_MODEL_NAME": "BAAI/bge-small-en-v1.5",
+	"LLM_MODEL_NAME": "meta-llama/llama-4-maverick:free"
+}

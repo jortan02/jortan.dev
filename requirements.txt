@@ -1,3 +1,9 @@
-sentence-transformers
 qdrant-client
 markdown
+transformers
+langchain
+langchain-community
+langchain-huggingface
+langchain-qdrant
+beautifulsoup4
+python-dotenv

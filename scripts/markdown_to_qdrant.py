@@ -1,55 +1,53 @@
-import os
-import glob
-import hashlib
-from sentence_transformers import SentenceTransformer
+from dotenv import load_dotenv
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+from langchain_qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import PointStruct, VectorParams, Distance
 import markdown
+from bs4 import BeautifulSoup
+import glob
+import os
+import json
+import hashlib
 
-# Config
-COLLECTION_NAME = "portfolio"
-SOURCE_DIR = "src/content/portfolio"
+config = json.load(open("config.json"))
 
-# Initialize embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
-embedding_dim = model.get_sentence_embedding_dimension()
+load_dotenv(".env.local")
 
-# Connect to Qdrant
+embedding_model = HuggingFaceEmbeddings(
+    model_name=config["EMBEDDING_MODEL_NAME"]
+)
+
+# Delete old collection
 client = QdrantClient(
-    url=os.environ["QDRANT_URL"],
-    api_key=os.environ["QDRANT_API_KEY"]
+    url=os.environ["QDRANT_URL"], api_key=os.environ["QDRANT_API_KEY"]
 )
-
-# Ensure collection exists
-client.recreate_collection(
-    collection_name=COLLECTION_NAME,
-    vectors_config=VectorParams(size=embedding_dim, distance=Distance.COSINE)
-)
+client.delete_collection(collection_name=config["COLLECTION_NAME"])
 
 def hash_file_name(path: str) -> str:
     """Hash the file path to use as a unique Qdrant ID."""
     return hashlib.md5(path.encode()).hexdigest()
 
-# Load and embed markdown files
-points = []
-for md_path in glob.glob(f"{SOURCE_DIR}/*.md"):
+# Embed markdown files
+texts = []
+metadata = []
+for md_path in glob.glob(f"{config["SOURCE_DIR"]}/*.md"):
     with open(md_path, "r", encoding="utf-8") as f:
         raw_md = f.read()
-        html = markdown.markdown(raw_md)  # Preprocess markdown
-        embedding = model.encode(html)
+        html = markdown.markdown(raw_md)
+        soup = BeautifulSoup(html, "html.parser")
+        plain_text = soup.get_text()
 
-        point_id = hash_file_name(md_path)
-        points.append(
-            PointStruct(
-                id=point_id,
-                vector=embedding.tolist(),
-                payload={"path": md_path, "raw_md": raw_md}
-            )
-        )
+        texts.append(plain_text)
+        metadata.append({"path": md_path, "raw_md": raw_md})
 
-# Upload to Qdrant
-if points:
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
-    print(f"Uploaded {len(points)} markdown files to Qdrant.")
-else:
-    print("No markdown files found.")
+# Upload files
+qdrant = QdrantVectorStore.from_texts(
+    texts=texts,
+    metadatas=metadata,
+    embedding=embedding_model,
+    collection_name=config["COLLECTION_NAME"],
+    url=os.environ["QDRANT_URL"],
+    api_key=os.environ["QDRANT_API_KEY"]
+)
+
+print(f"Uploaded {len(texts)} texts to Qdrant.")

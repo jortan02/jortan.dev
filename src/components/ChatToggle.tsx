@@ -50,16 +50,18 @@ export function ChatToggle() {
 
 			{/* Chat Interface */}
 			{isOpen && (
-				<div className="w-80 h-[calc(100vh-20%)] min-h-96 max-h-[600px] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-y-auto relative">
-					<div className="absolute top-2 right-2 flex items-center gap-2">
+				<div className="w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden">
+					{/* Menu Buttons */}
+					<div className="absolute top-3 right-3 flex items-center gap-3">
 						<button onClick={() => setMessages([])}>
-							<RotateCcw className="h-4 w-4 text-neutral-400 hover:text-neutral-100" />
+							<RotateCcw className="h-5 w-5 text-neutral-400 hover:text-neutral-100" />
 						</button>
 						<button onClick={() => setIsOpen(false)}>
-							<X className="h-5 w-5 text-neutral-400 hover:text-neutral-100" />
+							<X className="h-6 w-6 text-neutral-400 hover:text-neutral-100" />
 						</button>
 					</div>
-					<ChatContainer>
+
+					<ChatContainer className="flex-grow overflow-y-auto">
 						{!isEmpty ? (
 							<ChatMessages messages={messages as Message[]}>
 								<MessageList

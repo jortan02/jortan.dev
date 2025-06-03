@@ -1,5 +1,5 @@
 import { sansSerifFont } from "@/styles/fonts";
-import { Portfolio, allPortfolios } from "contentlayer/generated";
+import { allPortfolios } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import { imageSizeFromFile } from "image-size/fromFile";
 import { join } from "path";
 
-import { contactInfo } from "@/constants/contactInfo";
+import { contactInfo } from "@/utils/constants";
 
 type PageParams = {
   params: Promise<{ slug: string }>;
@@ -31,7 +31,7 @@ async function getPostWithImageSizes(slug: string) {
       const { width, height } = await imageSizeFromFile(join(process.cwd(), "public", src));
       imageSizes[src] = { width, height };
     } catch (err) {
-      console.error(`Can’t get dimensions for ${src}:`, err);
+      console.error(`Can't get dimensions for ${src}:`, err);
     }
   }
 

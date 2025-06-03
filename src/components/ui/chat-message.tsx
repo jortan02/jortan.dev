@@ -364,17 +364,14 @@ function ToolCall({
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <Code2 className="h-4 w-4" />
                   <span>
-                    Result from{" "}
                     <span className="font-mono">
                       {"`"}
                       {invocation.toolName}
                       {"`"}
                     </span>
+					{" "} completed
                   </span>
                 </div>
-                <pre className="overflow-x-auto whitespace-pre-wrap text-foreground">
-                  {JSON.stringify(invocation.result, null, 2)}
-                </pre>
               </div>
             )
           default:

@@ -1,4 +1,4 @@
-import { contactInfo } from "@/constants/contactInfo";
+import { contactInfo } from "@/utils/constants";
 import {
 	User,
 	Envelope,

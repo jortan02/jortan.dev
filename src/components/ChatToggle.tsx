@@ -76,7 +76,7 @@ export function ChatToggle() {
 			{/* Chat Interface */}
 			{isOpen && (
 				<div
-					className="w-full max-w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden"
+					className="w-full min-w-48 max-w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden"
 				>
 					{/* Menu Buttons */}
 					<div className="absolute top-3 right-3 flex items-center gap-3">

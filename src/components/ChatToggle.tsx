@@ -9,9 +9,18 @@ import { ChatContainer, ChatForm, ChatMessages } from "@/components/ui/chat";
 import { MessageInput } from "@/components/ui/message-input";
 import { MessageList } from "@/components/ui/message-list";
 import { PromptSuggestions } from "@/components/ui/prompt-suggestions";
-import { Message } from "./ui/chat-message";
+import { Message as UIMessage } from "./ui/chat-message";
+import { Message as SDKMessage } from "@ai-sdk/ui-utils";
 
 import { BotMessageSquare, RotateCcw, X } from "lucide-react";
+
+const initialMessage: SDKMessage[] = [
+	{
+		id: "1",
+		role: "assistant",
+		content: "Hello! I can help you with anything about Jordan's portfolio — just ask!",
+	},
+];
 
 export function ChatToggle() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -26,14 +35,7 @@ export function ChatToggle() {
 		stop,
 		setMessages,
 	} = useChat({
-		initialMessages: [
-			{
-				id: "1",
-				role: "assistant",
-				content:
-					"Hi! I can help you with anything about Jordan's portfolio — just ask!",
-			},
-		],
+		initialMessages: initialMessage
 	});
 
 	const isLoading = status === "submitted" || status === "streaming";
@@ -41,7 +43,6 @@ export function ChatToggle() {
 	const lastMessage = messages.at(-1);
 	const isEmpty = messages.length === 0;
 	const isTyping = lastMessage?.role === "user";
-	const offset = "calc(2rem - (100vw - 100%))";
 
 	const MenuButton = ({
 		icon,
@@ -60,7 +61,7 @@ export function ChatToggle() {
 
 	return (
 		<div
-			style={{ right: offset, marginLeft: offset }}
+			style={{ right: "calc(2rem - (100vw - 100%))" }}
 			className={`fixed bottom-[48px] z-50 ${sansSerifFont.className}`}
 		>
 			{/* Toggle Button */}
@@ -76,13 +77,14 @@ export function ChatToggle() {
 			{/* Chat Interface */}
 			{isOpen && (
 				<div
-					className="w-full min-w-48 max-w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden"
+					style={{ maxWidth: "calc(100vw - 2 * (2rem))" }}
+					className="w-96 min-w-48 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden ml-auto"
 				>
 					{/* Menu Buttons */}
 					<div className="absolute top-3 right-3 flex items-center gap-3">
 						<MenuButton
 							icon={<RotateCcw className="h-5 w-5" />}
-							onClick={() => setMessages([])}
+							onClick={() => setMessages(initialMessage)}
 						/>
 						<MenuButton
 							icon={<X className="h-6 w-6" />}
@@ -92,9 +94,9 @@ export function ChatToggle() {
 
 					<ChatContainer className="flex-grow overflow-y-auto">
 						{!isEmpty ? (
-							<ChatMessages messages={messages as Message[]}>
+							<ChatMessages messages={messages as UIMessage[]}>
 								<MessageList
-									messages={messages as Message[]}
+									messages={messages as UIMessage[]}
 									isTyping={isTyping}
 								/>
 							</ChatMessages>

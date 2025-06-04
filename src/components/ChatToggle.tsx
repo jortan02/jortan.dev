@@ -25,17 +25,42 @@ export function ChatToggle() {
 		status,
 		stop,
 		setMessages,
-	} = useChat();
+	} = useChat({
+		initialMessages: [
+			{
+				id: "1",
+				role: "assistant",
+				content:
+					"Hi! I can help you with anything about Jordan's portfolio — just ask!",
+			},
+		],
+	});
 
 	const isLoading = status === "submitted" || status === "streaming";
 
 	const lastMessage = messages.at(-1);
 	const isEmpty = messages.length === 0;
 	const isTyping = lastMessage?.role === "user";
+	const offset = "calc(2rem - (100vw - 100%))";
+
+	const MenuButton = ({
+		icon,
+		onClick,
+	}: {
+		icon: React.ReactNode;
+		onClick: () => void;
+	}) => (
+		<button
+			onClick={onClick}
+			className="duration-200 text-neutral-400 hover:text-neutral-100"
+		>
+			{icon}
+		</button>
+	);
 
 	return (
 		<div
-			style={{ right: "calc(32px - (100vw - 100%))" }}
+			style={{ right: offset, marginLeft: offset }}
 			className={`fixed bottom-[48px] z-50 ${sansSerifFont.className}`}
 		>
 			{/* Toggle Button */}
@@ -50,15 +75,19 @@ export function ChatToggle() {
 
 			{/* Chat Interface */}
 			{isOpen && (
-				<div className="w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden">
+				<div
+					className="w-full max-w-96 h-auto min-h-96 max-h-[80vh] pt-12 pb-4 px-4 flex flex-col justify-end bg-neutral-950 border border-neutral-700 rounded-lg shadow-lg overflow-hidden"
+				>
 					{/* Menu Buttons */}
 					<div className="absolute top-3 right-3 flex items-center gap-3">
-						<button onClick={() => setMessages([])}>
-							<RotateCcw className="h-5 w-5 text-neutral-400 hover:text-neutral-100" />
-						</button>
-						<button onClick={() => setIsOpen(false)}>
-							<X className="h-6 w-6 text-neutral-400 hover:text-neutral-100" />
-						</button>
+						<MenuButton
+							icon={<RotateCcw className="h-5 w-5" />}
+							onClick={() => setMessages([])}
+						/>
+						<MenuButton
+							icon={<X className="h-6 w-6" />}
+							onClick={() => setIsOpen(false)}
+						/>
 					</div>
 
 					<ChatContainer className="flex-grow overflow-y-auto">

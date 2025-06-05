@@ -161,6 +161,13 @@ export function MessageInput({
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [textAreaHeight, setTextAreaHeight] = useState<number>(0)
+  const handleFocus = () => {
+    document.body.classList.add("overflow-hidden");
+	};
+
+  const handleBlur = () => {
+	document.body.classList.remove("overflow-hidden");
+  };
 
   useEffect(() => {
     if (textAreaRef.current) {
@@ -203,6 +210,8 @@ export function MessageInput({
             aria-label="Write your prompt here"
             placeholder={placeholder}
             ref={textAreaRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onPaste={onPaste}
             onKeyDown={onKeyDown}
 			style={{ paddingRight: `${3 + (props.allowAttachments ? 3 : 0) + (isRecording ? 3 : 0)}rem` }}

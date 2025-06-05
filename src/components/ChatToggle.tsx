@@ -109,7 +109,7 @@ export function ChatToggle() {
 						>
 							{() => (
 								<MessageInput
-									className="max-h-32"
+									className="max-h-32 sticky"
 									value={input}
 									onChange={handleInputChange}
 									stop={stop}

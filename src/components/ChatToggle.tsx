@@ -45,13 +45,16 @@ export function ChatToggle() {
 	const MenuButton = ({
 		icon,
 		onClick,
+		ariaLabel,
 	}: {
 		icon: React.ReactNode;
 		onClick: () => void;
+		ariaLabel: string;
 	}) => (
 		<button
 			onClick={onClick}
 			className="duration-200 text-neutral-400 hover:text-neutral-100"
+			aria-label={ariaLabel}
 		>
 			{icon}
 		</button>
@@ -67,6 +70,7 @@ export function ChatToggle() {
 				<button
 					onClick={() => setIsOpen(true)}
 					className="chat-toggle-button bg-neutral-600 text-neutral-50 p-4 rounded-full shadow-lg hover:bg-neutral-700 transition-all duration-200"
+					aria-label="Open chatbot"
 				>
 					<BotMessageSquare className="h-6 w-6" />
 				</button>
@@ -82,10 +86,12 @@ export function ChatToggle() {
 						<MenuButton
 							icon={<RotateCcw className="h-5 w-5" />}
 							onClick={() => setMessages(initialMessage)}
+							ariaLabel="Reset chatbot"
 						/>
 						<MenuButton
 							icon={<X className="h-6 w-6" />}
 							onClick={() => setIsOpen(false)}
+							ariaLabel="Close chatbot"
 						/>
 					</div>
 

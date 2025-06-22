@@ -1,0 +1,32 @@
+name: Weekly Qdrant Ping
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    env:
+      QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+      QDRANT_URL: ${{ secrets.QDRANT_URL }}
+      COLLECTION_NAME: portfolio
+
+    steps:
+      - name: Ping Qdrant collection
+        run: |
+          STATUS_CODE=$(curl -s -o response.json -w "%{http_code}" \
+            -H "api-key: $QDRANT_API_KEY" \
+            $QDRANT_URL/collections/$COLLECTION_NAME)
+
+          echo "Response Body:"
+          cat response.json
+          
+          echo -e "\nStatus code: $STATUS_CODE"
+
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Error: Received non-200 status code"
+            exit 1
+          fi
+          echo "Success: Received 200 status code"

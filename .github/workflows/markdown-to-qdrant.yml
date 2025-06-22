@@ -8,7 +8,7 @@ on:
       - "src/content/portfolio/*.md"
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
 
     steps:

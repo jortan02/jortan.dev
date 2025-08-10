@@ -1,19 +1,86 @@
 # jortan.dev
 
-Welcome to the repository for jortan.dev, a personal portfolio website showcasing my projects and skills. This site is built using modern web technologies to provide a seamless and responsive user experience.
+Personal portfolio website built with Next.js and Contentlayer.
 
-## Features
+## Tech Stack
 
-- **Responsive Design**: Built with Tailwind CSS to ensure the site looks great on all devices.
-- **Dynamic Content**: Utilizes Next.js for server-side rendering and dynamic routing.
-- **Markdown Support**: Projects and blog posts are written in Markdown, allowing for easy content management.
+- Next.js 15 (App Router), React 19, TypeScript
+- Tailwind CSS 4
+- Contentlayer2 for Markdown content
+- Playwright for E2E/UI testing
+- Vitest + Testing Library for unit/component/API tests
 
-## Technologies Used
+## Requirements
 
-- **Next.js**: For building the React-based web application.
-- **Tailwind CSS**: For styling and responsive design.
-- **TypeScript**: For type safety and improved developer experience.
-- **Contentlayer**: For managing and generating content from Markdown files.
+- Node.js 18+ (LTS recommended)
+- npm 9+
+
+## Getting Started
+
+1) Install dependencies
+
+```
+npm install
+```
+
+2) Configure environment (only required for the chat API endpoint)
+
+Create `.env.local` and set:
+
+```
+HUGGINGFACE_API_KEY=...
+QDRANT_URL=...
+QDRANT_API_KEY=...
+OPENROUTER_API_KEY=...
+```
+
+3) Run the dev server
+
+```
+npm run dev
+```
+
+Visit `http://localhost:3000`.
+
+## Scripts
+
+- `dev`: start Next.js dev server
+- `build`: production build
+- `start`: start production server
+- `build:content`: build Contentlayer output
+- `lint`: run ESLint
+- `test`: run unit/component/API tests (watch)
+- `test:coverage`: run tests with coverage
+- `e2e`: run Playwright tests (expects a built app)
+
+## Project Structure
+
+- `src/app/`: App Router pages and API routes
+- `src/components/`: UI and app components
+- `src/content/portfolio/`: Markdown content for portfolio items
+- `src/lib/`, `src/utils/`: utilities
+- `tests/`: Vitest setup and mocks
+- `e2e/`: Playwright tests
+
+## Content Authoring
+
+- Add/edit Markdown files in `src/content/portfolio/`
+- Contentlayer generates typed data used in pages
+
+## Testing
+
+- Unit/Component/API (Vitest + Testing Library)
+  - `npm test`
+  - See examples under `src/**/*.test.ts(x)`
+- E2E/UI (Playwright)
+  - First run: `npx playwright install`
+  - Build: `npm run build`
+  - Run: `npm run e2e`
+
+## Deployment
+
+- Build with `npm run build` and serve with `npm start`
+- For Vercel: connect the repo; default Next.js settings work
 
 ## Resources and Inspirations
 

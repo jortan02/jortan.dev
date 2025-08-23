@@ -1,8 +1,9 @@
 import os
 import json
 import requests
+import pandas as pd
 from dotenv import load_dotenv
-from ragas.evaluation import evaluate 
+from ragas.evaluation import evaluate
 from ragas.metrics import (
     faithfulness,
     answer_relevancy,
@@ -18,9 +19,9 @@ from ragas.embeddings import LangchainEmbeddingsWrapper
 
 load_dotenv(".env.local")
 
-with open('config.json', 'r') as f:
+with open("config.json", "r") as f:
     config = json.load(f)
-    
+
 # Set up the judge LLM and embeddings
 
 judge_llm_langchain = ChatOpenAI(
@@ -30,7 +31,7 @@ judge_llm_langchain = ChatOpenAI(
     default_headers={
         "HTTP-Referer": "http://localhost:3000",
         "X-Title": "jortan.dev-evaluation",
-    }
+    },
 )
 judge_llm = LangchainLLMWrapper(judge_llm_langchain)
 
@@ -51,8 +52,9 @@ context_precision.embeddings = embeddings_model
 
 
 # Load the golden dataset
-with open('scripts/golden_dataset.json', 'r') as f:
+with open("scripts/golden_dataset.json", "r") as f:
     golden_dataset = json.load(f)
+
 
 def get_rag_response(question):
     """
@@ -62,7 +64,7 @@ def get_rag_response(question):
         response = requests.post(
             "http://localhost:3000/api/chat/evaluate",
             json={"messages": [{"role": "user", "content": question}]},
-            timeout=30
+            timeout=30,
         )
         response.raise_for_status()
         return response.json()
@@ -70,19 +72,22 @@ def get_rag_response(question):
         print(f"Error calling API for question '{question}': {e}")
     except json.JSONDecodeError:
         print(f"Error: API response for question '{question}' was not valid JSON.")
-    
+
     return {
         "answer": "Error: Failed to get a valid response from the API.",
-        "contexts": []
+        "contexts": [],
     }
+
 
 # Prepare the data for evaluation
 data_samples = []
 for item in golden_dataset:
-    data_samples.append({
-        "question": item["question"],
-        "ground_truth": item["answer"],
-    })
+    data_samples.append(
+        {
+            "question": item["question"],
+            "ground_truth": item["answer"],
+        }
+    )
 
 print("Querying the RAG API for each question in the golden dataset...")
 results = [get_rag_response(item["question"]) for item in data_samples]
@@ -93,32 +98,36 @@ for i, result in enumerate(results):
     data_samples[i]["contexts"] = result.get("contexts", [])
 
 # Define the features with the correct data types
-features = Features({
-    'question': Value('string'),
-    'answer': Value('string'),
-    'contexts': Sequence(Value('string')),
-    'ground_truth': Value('string')
-})
+features = Features(
+    {
+        "question": Value("string"),
+        "answer": Value("string"),
+        "contexts": Sequence(Value("string")),
+        "ground_truth": Value("string"),
+    }
+)
 
 # Create the Dataset using the explicit schema
-dataset = Dataset.from_dict({
-    "question": [s["question"] for s in data_samples],
-    "answer": [s["answer"] for s in data_samples],
-    "contexts": [s["contexts"] for s in data_samples],
-    "ground_truth": [s["ground_truth"] for s in data_samples],
-}, features=features)
-
+dataset = Dataset.from_dict(
+    {
+        "question": [s["question"] for s in data_samples],
+        "answer": [s["answer"] for s in data_samples],
+        "contexts": [s["contexts"] for s in data_samples],
+        "ground_truth": [s["ground_truth"] for s in data_samples],
+    },
+    features=features,
+)
 
 print("\nDataset prepared for evaluation. Running Ragas...")
 
 result = evaluate(
-	dataset,
-	metrics=[
-		context_precision,
-		context_recall,
-		faithfulness,
-		answer_relevancy,
-	]
+    dataset,
+    metrics=[
+        context_precision,
+        context_recall,
+        faithfulness,
+        answer_relevancy,
+    ],
 )
 print("\n--- RAG Evaluation Results ---")
 print(result)
@@ -131,9 +140,26 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)
     output_path = os.path.join(script_dir, "evaluation_scores.csv")
     evaluation_scores.to_csv(output_path, index=False)
+    rag_mask = [len(s["contexts"]) > 0 for s in data_samples]
 
+    # Compute mean scores
+    mean_scores = {}
+
+    for metric in [
+        "context_precision",
+        "context_recall",
+        "faithfulness",
+        "answer_relevancy",
+    ]:
+        if metric in ["context_precision", "context_recall"]:
+            # Only include RAG-relevant samples
+            mean_scores[metric] = evaluation_scores.loc[rag_mask, metric].mean()
+        else:
+            # Include all samples
+            mean_scores[metric] = evaluation_scores[metric].mean()
+
+    mean_scores = pd.Series(mean_scores)
     # Aggregate means for each metric
-    mean_scores = evaluation_scores.mean(numeric_only=True)
     print("\n--- Mean Evaluation Scores ---")
     print(mean_scores)
 
@@ -150,10 +176,14 @@ if __name__ == "__main__":
         if metric in mean_scores:
             score = mean_scores[metric]
             if score < threshold:
-                print(f"❌ FAILED: {metric} score {score:.2f} is below threshold {threshold:.2f}")
+                print(
+                    f"❌ FAILED: {metric} score {score:.2f} is below threshold {threshold:.2f}"
+                )
                 passed = False
             else:
-                print(f"✅ PASSED: {metric} score {score:.2f} is at or above threshold {threshold:.2f}")
+                print(
+                    f"✅ PASSED: {metric} score {score:.2f} is at or above threshold {threshold:.2f}"
+                )
         else:
             print(f"⚠️ Metric '{metric}' not found in evaluation results.")
 

@@ -39,7 +39,15 @@ for md_path in glob.glob(f"{config['SOURCE_DIR']}/*.md"):
         
         # Extract the project title from the frontmatter
         title_match = re.search(r'title:\s*(.*)', frontmatter_str)
+        category_match = re.search(r'category:\s*(.*)', frontmatter_str)
+        skills_match = re.search(r'skills:\s*\[(.*?)\]', frontmatter_str)
+
         project_title = title_match.group(1).strip() if title_match else "Unknown Project"
+        category = category_match.group(1).strip() if category_match else "Uncategorized"
+        skills = skills_match.group(1).strip() if skills_match else ""
+        
+        # Create the metadata header to prepend to each chunk
+        metadata_header = f"Project: {project_title}\nCategory: {category}\nSkills: {skills}"
 
         # Split the markdown body by '###' headings
         # The first element will be the overview before the first '###'
@@ -47,9 +55,11 @@ for md_path in glob.glob(f"{config['SOURCE_DIR']}/*.md"):
         
         # The first section is the 'Overview', which doesn't start with '###'
         overview_section = sections[0].strip()
+        # Remove the image link for cleaner chunking
+        overview_section = re.sub(r'!\[.*\]\(.*\)', '', overview_section).strip()
         if overview_section:
             # Add the project title to the chunk for context
-            chunk_text = f"Project: {project_title}\n\nOverview:\n{overview_section}"
+            chunk_text = f"{metadata_header}\n\nOverview:\n{overview_section}"
             all_texts.append(chunk_text)
             all_metadata.append({"source": md_path, "project_title": project_title})
 
@@ -61,7 +71,7 @@ for md_path in glob.glob(f"{config['SOURCE_DIR']}/*.md"):
             heading = section_content.split('\n', 1)[0]
             
             # Create a chunk with the project title and section heading for full context
-            chunk_text = f"Project: {project_title}\n\nSection: {heading}\n\n{section_content}"
+            chunk_text = f"{metadata_header}\n\nSection: {heading}\n\n{section_content}"
             all_texts.append(chunk_text)
             all_metadata.append({"source": md_path, "project_title": project_title})
 

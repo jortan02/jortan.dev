@@ -7,3 +7,6 @@ langchain-huggingface
 langchain-qdrant
 beautifulsoup4
 python-dotenv
+ragas
+langchain
+datasets

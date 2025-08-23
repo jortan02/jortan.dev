@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { ParticlesContainer } from "@/components/ParticlesContainer";
+import { bioText } from "@/utils/constants";
 
 export default function Home() {
 	return (
@@ -13,11 +14,7 @@ export default function Home() {
 							jortan
 						</h1>
 						<h2 className="max-w-3xl my-8 text-center text-sm">
-							Hi, my name is Jordan. I am a recent BS/MS Computer
-							Science graduate from the University of Utah. I
-							enjoy building intelligent systems, from LLM tools
-							to computer vision pipelines, as well as web and
-							mobile apps.
+							{bioText}
 						</h2>
 					</div>
 				</main>

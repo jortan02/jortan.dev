@@ -1,0 +1,37 @@
+[
+	{
+	  "question": "What was the final test accuracy for the Convolutional Neural Network project?",
+	  "answer": "The project achieved a test accuracy of 68.7% on the CIFAR-10 dataset, which surpassed the benchmark of 62%. I can also provide details on its technical implementation if you'd like.",
+	  "contexts": [
+		"Project: Convolutional Neural Network\nCategory: Project\nSkills: Python, NumPy\n\nSection: Key Achievements\n\nKey Achievements\n\n- Achieved 68.7% test accuracy on CIFAR-10\n- Surpassed the benchmark accuracy of 62%\n- Built all core CNN components from first principles\n- Successfully trained a multi-layer model using only NumPy"
+	  ]
+	},
+	{
+	  "question": "In the Selective Unlearning project, how was the ensemble model structured?",
+	  "answer": "The project used an ensemble of five ResNet-18 models, which were compared against a single, larger ResNet-152 model. Would you like to know about the key findings from this research?",
+	  "contexts": [
+		"Project: Selective Unlearning of Training Data Without Complete Retraining\nCategory: Research\nSkills: Python, PyTorch\n\nSection: Technical Implementation\n\nTechnical Implementation\n\n- Architecture: Ensemble of five ResNet-18 models (11.4M parameters each)\n- Baseline Comparison: Single ResNet-152 (58.5M parameters) without unlearning\n- Training Strategy:\n  - Models trained on chunks of CIFAR-10 in sequence\n  - Each model receives a random subset of each chunk\n  - When data must be unlearned, models that trained on it are marked invalid\n  - Invalid models are replaced and retrained on the latest available data\n- Evaluation:\n  - Validation accuracy and loss tracked after each training phase\n  - Visualizations highlight ensemble progress vs. baseline"
+	  ]
+	},
+	{
+	  "question": "What networking protocol was used for the TankWars game?",
+	  "answer": "The TankWars game used a TCP-based client-server model for game synchronization. I can also tell you about its key features or technical implementation.",
+	  "contexts": [
+		"Project: TankWars\nCategory: Desktop App\nSkills: C#, WinForms, TCP, JSON\n\nSection: Technical Implementation\n\nTechnical Implementation\n\n- Followed MVC architecture for modular, maintainable code\n- Built a TCP-based client-server model for game synchronization\n- Server maintained the authoritative game state and validated player actions\n- Clients rendered game state and sent input events to the server\n- Designed a synchronized game loop and entity tracking system\n- Implemented event-driven logic for collisions and scorekeeping\n- Serialized game events and world updates using JSON\n- Developed the game interface with WinForms for real-time rendering"
+	  ]
+	},
+	{
+	  "question": "What technologies were used in the Drawing App?",
+	  "answer": "The Drawing App was built with Kotlin and Firebase, and it also used C++ for image processing and Jetpack for UI management. Let me know if you'd like to know more about its features!",
+	  "contexts": [
+		"Project: Drawing App\nCategory: Mobile App\nSkills: Kotlin, Android, Firebase, C++, Jetpack\n\nSection: Technical Implementation\n\nTechnical Implementation\n\n- Built on MVVM architecture to ensure scalability and testability\n- Integrated Firebase Authentication for secure user access\n- Implemented custom drawing tools and color selection logic\n- Incorporated native C++ functions for image processing\n- Stored drawings as image files locally and in the cloud\n- Supported collaborative drawing using Firebase Realtime Database\n- Managed UI state and data flow using Android Jetpack components"
+	  ]
+	},
+	{
+	  "question": "How much was the RMSE reduced in the Data-centric ML Regression project?",
+	  "answer": "The project reduced the RMSE by 99.99%, from over 2 million down to 4.9. I can also share details about the data cleaning and feature engineering techniques used.",
+	  "contexts": [
+		"Project: Data-centric ML Regression\nCategory: Project\nSkills: Python, pandas, scikit-learn\n\nSection: Key Achievements\n\nKey Achievements\n\n- Reduced RMSE from 2,049,382 to 4.9 (99.99% improvement)\n- Implemented robust data cleaning pipelines\n- Developed automated feature engineering processes\n- Created reproducible data transformation workflows"
+	  ]
+	}
+]

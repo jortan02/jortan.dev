@@ -1,0 +1,27 @@
+[
+	{
+	  "question": "What is Jordan's educational background?",
+	  "answer": "Jordan earned both his bachelor's and master's degrees in Computer Science from the University of Utah.",
+	  "contexts": []
+	},
+	{
+	  "question": "What kind of roles is Jordan interested in?",
+	  "answer": "Jordan is interested in roles involving machine learning, full-stack development, and research-driven product work.",
+	  "contexts": []
+	},
+	{
+	  "question": "How can I get in touch with Jordan?",
+	  "answer": "The best way to contact Jordan is through his LinkedIn profile.",
+	  "contexts": []
+	},
+	{
+	  "question": "What is Jordan's opinion on the best programming language?",
+	  "answer": "I don't have information about Jordan's personal opinions on programming languages. I can only provide details about the projects in his portfolio.",
+	  "contexts": []
+	},
+	{
+	  "question": "Can you provide a link to the TankWars game?",
+	  "answer": "I do not have a direct download link for the TankWars game. However, I can tell you more about its implementation or key features.",
+	  "contexts": []
+	}
+]

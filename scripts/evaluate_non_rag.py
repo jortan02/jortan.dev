@@ -4,12 +4,7 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 from ragas.evaluation import evaluate
-from ragas.metrics import (
-    faithfulness,
-    answer_relevancy,
-    context_recall,
-    context_precision,
-)
+from ragas.metrics import answer_relevancy
 from langchain_openai import ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
 from datasets import Dataset, Features, Value, Sequence
@@ -40,19 +35,13 @@ embeddings_model_langchain = HuggingFaceEmbeddings(
 embeddings_model = LangchainEmbeddingsWrapper(embeddings_model_langchain)
 
 
-faithfulness.llm = judge_llm
 answer_relevancy.llm = judge_llm
-context_recall.llm = judge_llm
-context_precision.llm = judge_llm
-faithfulness.embeddings = embeddings_model
 answer_relevancy.embeddings = embeddings_model
-context_recall.embeddings = embeddings_model
-context_precision.embeddings = embeddings_model
 
 # --- SCRIPT START ---
 
-# Load the golden dataset for RAG evaluation
-with open("scripts/golden_dataset_rag.json", "r") as f:
+# Load the golden dataset for non-RAG evaluation
+with open("scripts/golden_dataset_non_rag.json", "r") as f:
     golden_dataset = json.load(f)
 
 # Get responses from the RAG system
@@ -67,9 +56,8 @@ for item in golden_dataset:
         {
             "question": item["question"],
             "answer": response_json["answer"],
-            "contexts": response_json["contexts"],
+            "contexts": response_json["contexts"], # Will be empty
             "ground_truth": item["answer"],
-            "ground_truth_contexts": item["contexts"],
         }
     )
 
@@ -81,56 +69,41 @@ ds = Dataset.from_list(
         answer=Value("string"),
         contexts=Sequence(Value("string")),
         ground_truth=Value("string"),
-        ground_truth_contexts=Sequence(Value("string")),
     ),
 )
 
-# Evaluate the dataset using Ragas
+# Evaluate the dataset using only answer relevancy
 result = evaluate(
     ds,
     metrics=[
-        context_precision,
-        context_recall,
-        faithfulness,
         answer_relevancy,
     ],
 )
 
 # Convert to DataFrame and save detailed results to CSV
 evaluation_df = result.to_pandas()
-evaluation_df.to_csv("scripts/evaluation_scores_rag.csv", index=False)
-print("\n--- Detailed RAG evaluation scores saved to scripts/evaluation_scores_rag.csv ---")
+evaluation_df.to_csv("scripts/evaluation_scores_non_rag.csv", index=False)
+print("\n--- Detailed non-RAG evaluation scores saved to scripts/evaluation_scores_non_rag.csv ---")
 print(result)
 
+# Aggregate mean for answer relevancy
+mean_score = evaluation_df["answer_relevancy"].mean()
+print(f"\n--- Mean Answer Relevancy (Non-RAG Questions) ---")
+print(f"{mean_score:.2f}")
 
-# Aggregate means for each metric
-mean_scores = evaluation_df[
-    ["context_precision", "context_recall", "faithfulness", "answer_relevancy"]
-].mean()
-
-print("\n--- Mean Evaluation Scores (RAG Questions Only) ---")
-print(mean_scores)
-
-thresholds = {
-    "context_precision": 0.8,
-    "context_recall": 0.8,
-    "faithfulness": 0.8,
-    "answer_relevancy": 0.8,
-}
+threshold = 0.9
 
 passed = True
 print("\n--- Threshold Check ---")
-for metric, threshold in thresholds.items():
-    score = mean_scores[metric]
-    if score < threshold:
-        print(
-            f"❌ FAILED: {metric} score {score:.2f} is below threshold {threshold:.2f}"
-        )
-        passed = False
-    else:
-        print(
-            f"✅ PASSED: {metric} score {score:.2f} is at or above threshold {threshold:.2f}"
-        )
+if mean_score < threshold:
+    print(
+        f"❌ FAILED: answer_relevancy score {mean_score:.2f} is below threshold {threshold:.2f}"
+    )
+    passed = False
+else:
+    print(
+        f"✅ PASSED: answer_relevancy score {mean_score:.2f} is at or above threshold {threshold:.2f}"
+    )
 
 if not passed:
     exit(1)

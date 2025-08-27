@@ -179,51 +179,94 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
     )
   }
 
-  if (parts && parts.length > 0) {
-    return parts.map((part, index) => {
-      if (part.type === "text") {
-        return (
-          <div
-            className={cn(
-              "flex flex-col",
-              isUser ? "items-end" : "items-start"
-            )}
-            key={`text-${index}`}
-          >
-            <div className={cn(chatBubbleVariants({ isUser, animation }))}>
-              <MarkdownRenderer>{part.text}</MarkdownRenderer>
-              {actions ? (
-                <div className="absolute -bottom-4 right-2 flex space-x-1 rounded-lg border bg-background p-1 text-foreground opacity-0 transition-opacity group-hover/message:opacity-100">
-                  {actions}
-                </div>
-              ) : null}
-            </div>
+  // Group consecutive tool calls together to render them in a single block
+  const processedParts = useMemo(() => {
+    if (!parts) return []
+    const result: (
+      | MessagePart
+      | { type: "tool-group"; toolInvocations: ToolInvocation[] }
+    )[] = []
 
-            {showTimeStamp && createdAt ? (
-              <time
-                dateTime={createdAt.toISOString()}
+    for (const part of parts) {
+      const lastPart = result[result.length - 1]
+
+      if (
+        part.type === "tool-invocation" &&
+        lastPart &&
+        lastPart.type === "tool-group"
+      ) {
+        lastPart.toolInvocations.push(part.toolInvocation)
+      } else if (part.type === "tool-invocation") {
+        result.push({
+          type: "tool-group",
+          toolInvocations: [part.toolInvocation],
+        })
+      } else {
+        result.push(part)
+      }
+    }
+    return result
+  }, [parts])
+
+  if (parts && parts.length > 0) {
+    return (
+      <div className="flex w-full flex-col items-start">
+        {processedParts.map((part, index) => {
+          const isLastPart = index === processedParts.length - 1
+
+          if (part.type === "text") {
+            return (
+              <div
                 className={cn(
-                  "mt-1 block px-1 text-xs opacity-50",
-                  animation !== "none" && "duration-500 animate-in fade-in-0"
+                  "w-full",
+                  !isLastPart && "mb-2"
                 )}
               >
-                {formattedTime}
-              </time>
-            ) : null}
-          </div>
-        )
-      } else if (part.type === "reasoning") {
-        return <ReasoningBlock key={`reasoning-${index}`} part={part} />
-      } else if (part.type === "tool-invocation") {
-        return (
-          <ToolCall
-            key={`tool-${index}`}
-            toolInvocations={[part.toolInvocation]}
-          />
-        )
-      }
-      return null
-    })
+                <div
+                  className={cn(chatBubbleVariants({ isUser, animation }))}
+                  key={`text-${index}`}
+                >
+                  <MarkdownRenderer>{part.text}</MarkdownRenderer>
+                  {actions ? (
+                    <div className="absolute -bottom-4 right-2 flex space-x-1 rounded-lg border bg-background p-1 text-foreground opacity-0 transition-opacity group-hover/message:opacity-100">
+                      {actions}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            )
+          }
+          if (part.type === "reasoning") {
+            return (
+              <div key={`reasoning-${index}`} className={cn(!isLastPart && "mb-2")}>
+                <ReasoningBlock part={part} />
+              </div>
+            )
+          }
+          if (part.type === "tool-group") {
+            return (
+              <div key={`tool-group-${index}`} className={cn(!isLastPart && "mb-2")}>
+                <ToolCall
+                  toolInvocations={part.toolInvocations}
+                />
+              </div>
+            )
+          }
+          return null
+        })}
+        {showTimeStamp && createdAt && (
+          <time
+            dateTime={createdAt.toISOString()}
+            className={cn(
+              "mt-1 block px-1 text-xs opacity-50",
+              animation !== "none" && "duration-500 animate-in fade-in-0"
+            )}
+          >
+            {formattedTime}
+          </time>
+        )}
+      </div>
+    )
   }
 
   if (toolInvocations && toolInvocations.length > 0) {
@@ -266,7 +309,7 @@ const ReasoningBlock = ({ part }: { part: ReasoningPart }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="mb-2 flex flex-col items-start sm:max-w-[70%]">
+    <div className="flex flex-col items-start sm:max-w-[70%]">
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
@@ -308,76 +351,82 @@ function ToolCall({
 }: Pick<ChatMessageProps, "toolInvocations">) {
   if (!toolInvocations?.length) return null
 
-  return (
-    <div className="flex flex-col items-start gap-2">
-      {toolInvocations.map((invocation, index) => {
-        const isCancelled =
-          invocation.state === "result" &&
-          invocation.result.__cancelled === true
+  const runningInvocations = toolInvocations.filter(
+    (inv) => inv.state === "call" || inv.state === "partial-call"
+  )
 
-        if (isCancelled) {
-          return (
-            <div
-              key={index}
-              className="flex items-center gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm text-muted-foreground"
-            >
-              <Ban className="h-4 w-4" />
-              <span>
-                Cancelled{" "}
-                <span className="font-mono">
-                  {"`"}
-                  {invocation.toolName}
-                  {"`"}
-                </span>
+  // If any tool is running, display the "in-progress" state.
+  if (runningInvocations.length > 0) {
+    const totalTools = toolInvocations.length
+    return (
+      <div className="flex min-w-[210px] items-center gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm text-muted-foreground">
+        <Loader2 className="h-4 w-4 animate-spin" />
+        <span>
+          {totalTools > 1 ? (
+            <>Calling {totalTools} tools...</>
+          ) : (
+            <>
+              Calling{" "}
+              <span className="font-mono">
+                {"`"}
+                {toolInvocations[0].toolName}
+                {"`"}
               </span>
-            </div>
-          )
-        }
+              ...
+            </>
+          )}
+        </span>
+      </div>
+    )
+  }
 
-        switch (invocation.state) {
-          case "partial-call":
-          case "call":
-            return (
-              <div
-                key={index}
-                className="flex items-center gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm text-muted-foreground"
-              >
-                <Terminal className="h-4 w-4" />
-                <span>
-                  Calling{" "}
-                  <span className="font-mono">
-                    {"`"}
-                    {invocation.toolName}
-                    {"`"}
-                  </span>
-                  ...
-                </span>
-                <Loader2 className="h-3 w-3 animate-spin" />
-              </div>
-            )
-          case "result":
-            return (
-              <div
-                key={index}
-                className="flex flex-col gap-1.5 rounded-lg border bg-muted/50 px-3 py-2 text-sm"
-              >
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Code2 className="h-4 w-4" />
-                  <span>
-                    <span className="font-mono">
-                      {"`"}
-                      {invocation.toolName}
-                      {"`"}
-                    </span>
-					{" "} completed
-                  </span>
-                </div>
-              </div>
-            )
-          default:
-            return null
-        }
-      })}
+  // If no tools are running, show a consolidated "completed" or "cancelled" message.
+  const totalTools = toolInvocations.length
+  const cancelledTools = toolInvocations.filter(
+    (inv) => inv.state === "result" && inv.result.__cancelled
+  ).length
+
+  // All tools were cancelled
+  if (cancelledTools === totalTools) {
+    return (
+      <div className="flex min-w-[210px] items-center gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm text-muted-foreground">
+        <Ban className="h-4 w-4" />
+        <span>
+          {totalTools > 1 ? (
+            <>{totalTools} tools cancelled</>
+          ) : (
+            <>
+              Cancelled{" "}
+              <span className="font-mono">
+                {"`"}
+                {toolInvocations[0].toolName}
+                {"`"}
+              </span>
+            </>
+          )}
+        </span>
+      </div>
+    )
+  }
+
+  // All tools completed
+  return (
+    <div className="flex min-w-[210px] items-center gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm text-muted-foreground">
+      <Code2 className="h-4 w-4" />
+      <span>
+        {totalTools > 1 ? (
+          <>{totalTools} tools completed</>
+        ) : (
+          <>
+            <span className="font-mono">
+              {"`"}
+              {toolInvocations[0].toolName}
+              {"`"}
+            </span>{" "}
+            completed
+          </>
+        )}
+      </span>
     </div>
   )
 }
